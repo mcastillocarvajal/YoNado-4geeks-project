@@ -1,0 +1,19 @@
+body{
+    background-image: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#logo {
+    font-family: 'Jura', sans-serif;
+    font-size: 200%;
+    color: white;
+}
+#jumbotron{
+    max-width: 38rem;
+    max-height: 35rem;
+    background: rgba(255,255,255,0.4);
+    margin: 3rem;
+
+}
