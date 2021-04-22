@@ -1,0 +1,43 @@
+body{
+    background-color: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.formulary{
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px black;
+    color: black;
+}
+
+.form-control{
+    color: #c6c6c6;
+    border: none;
+    border-bottom: solid 1px black;
+}
+.signin{
+    background: black;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700!important;
+    color: white;
+    transition: 0.5s ease-in;
+}
+
+.signin:hover{
+    color: white;
+}
+.register{
+    color: black;
+    background: white;
+    border-color: black;
+    padding: 10px;
+    transition: 0.5s ease-in;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    font-size: 16px;
+    font-weight: 700!important;
+}
