@@ -1,11 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "react-bootstrap";
+import { Col, Row, Container, Carousel } from "react-bootstrap";
+import "../../styles/carousel.scss";
 
 export const Icons = () => {
 	return (
 		<>
-			<Row className=" mb-4">
+			<Carousel fade={true} pause={false}>
+				<Carousel.Item interval={5000}>
+					<img className="d-block w-100" src={require("../../img/iconos1.jpg")} alt="First slide" />
+				</Carousel.Item>
+				<Carousel.Item interval={5000}>
+					<img className="d-block w-100" src={require("../../img/iconos2.jpg")} alt="Third slide" />
+				</Carousel.Item>
+			</Carousel>
+
+			{/* <Row className=" mb-4">
 				<Col>
 					<div className="d-flex justify-content-center">
 						<h1>Mis íconos</h1>
@@ -54,7 +64,7 @@ export const Icons = () => {
 					</div>
 					<div className="d-flex justify-content-center">Efectivo en poco tiempo</div>
 				</Col>
-			</Row>
+			</Row> */}
 		</>
 	);
 };
