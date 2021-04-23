@@ -6,6 +6,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Register } from "./pages/register";
+import { Cards } from "./pages/card";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -21,17 +22,20 @@ const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					{/* <Navbar /> */}
 					<Switch>
-						<Route exact path="/">
+						{/* <Route exact path="/">
 							<Home />
-						</Route>
+						</Route> */}
 
 						<Route exact path="/register">
 							<Register />
 						</Route>
+						<Route exact path="/card">
+							<Cards />
+						</Route>
 
-						<Route exact path="/demo">
+						{/* <Route exact path="/demo">
 							<Demo />
 						</Route>
 						<Route exact path="/single/:theid">
@@ -39,9 +43,9 @@ const Layout = () => {
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
-						</Route>
+						</Route> */}
 					</Switch>
-					<Footer />
+					{/* <Footer /> */}
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
