@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../store/appContext";
+//import { Context } from "../store/appContext";
 import { Container, Row, Col, Form, FormGroup, Button } from "react-bootstrap";
 
 import "../../styles/register.scss";

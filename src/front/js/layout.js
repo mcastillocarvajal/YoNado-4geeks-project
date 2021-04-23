@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Home } from "./pages/home";
 import { Register } from "./pages/register";
+import { Cards } from "./pages/card";
 import { Perfil } from "./pages/perfil";
 import injectContext from "./store/appContext";
 
@@ -19,12 +20,14 @@ const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
 					<Switch>
-						<Route exact path="/">
+						{/* <Route exact path="/">
 							<Home />
-						</Route>
-
+						</Route> */}
 						<Route exact path="/register">
 							<Register />
+						</Route
+						<Route exact path="/card">
+							<Cards />
 						</Route>
 					</Switch>
 					<Footer />
