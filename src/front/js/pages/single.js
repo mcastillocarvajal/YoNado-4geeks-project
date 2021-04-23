@@ -12,6 +12,13 @@ export const Single = props => {
 		<div className="jumbotron">
 			<h1 className="display-4">This will show the demo element: {store.demo[params.theid].title}</h1>
 			<img src={rigoImageUrl} />
+			<iframe
+				width="560"
+				height="315"
+				src="https://www.youtube.com/embed/lJQwSrryOV8"
+				title="YouTube video player"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			/>
 			<hr className="my-4" />
 
 			<Link to="/">
