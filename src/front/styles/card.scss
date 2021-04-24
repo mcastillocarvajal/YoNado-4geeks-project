@@ -1,9 +1,10 @@
-.card{
-    margin-top: 100px;
+#card{
     font-family: 'Raleway', sans-serif;
+    margin: auto;
+    padding: 0%;
 }
 
-.btn{
+#btn{
     background: #13718E;
     border-radius: 19.5px;
     float: right; 
@@ -14,24 +15,16 @@
     top: 809px;
 }
 
-.star{
+#star{
     width: 26px;
     height: 26px;
     left: 530px;
     top: 816px;
-    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.2);
 }
 
-.line{
-    width: 72px;
-    height: 2px;
-    left: 0px;
-    top: 10px;
-    background: #04C3FF;
-}
 
-.card-title{
-    font-family: 'Raleway', sans-serif;
+#title{
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -41,12 +34,12 @@
     color: #3CD0FF;
 }
 
-.card-text{
-    font-family: 'Raleway', sans-serif;
+#text{
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 32px;
     color: #043953;
     float: right; 
+    margin-left: 65px;
 }
