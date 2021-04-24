@@ -8,7 +8,7 @@ import "../../styles/register.scss";
 export const Register = () => {
 	//const { store, actions } = useContext(Context);
 	return (
-		<Container>
+		<Container className="mb-5">
 			<Row className="justify-content-center pt-5 mt-5 mr-1">
 				<Col className="col-md-6 formulary">
 					<Form action="">

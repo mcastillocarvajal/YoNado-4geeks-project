@@ -19,18 +19,21 @@ const Layout = () => {
 	return (
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
-					<Switch>
-						{/* <Route exact path="/">
-							<Home />
-						</Route> */}
-						<Route exact path="/register">
-							<Register />
-						</Route
-						<Route exact path="/card">
-							<Cards />
-						</Route>
-					</Switch>
-					<Footer />
+				<Switch>
+					<Route exact path="/">
+						<Home />
+					</Route>
+					<Route exact path="/register">
+						<Register />
+					</Route>
+					<Route exact path="/card">
+						<Cards />
+					</Route>
+					<Route exact path="/perfil">
+						<Perfil />
+					</Route>
+				</Switch>
+				{/* <Footer /> */}
 			</BrowserRouter>
 		</div>
 	);
