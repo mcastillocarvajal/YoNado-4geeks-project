@@ -7,35 +7,33 @@ import "../../styles/card.scss";
 export const Cards = props => {
 	//const { store, actions } = useContext(Context);
 	return (
-		<Container>
-			<Card className="card" style={{ width: "30rem" }}>
-				<Card.Header>
-					<iframe
-						width="450"
-						height="315"
-						src="https://www.youtube.com/embed/djV11Xbc914"
-						title="YouTube video player"
-						frameBorder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowFullScreen
-					/>
-					<Button className="btn" variant="primary">
-						<i className="fas fa-star star" />
-						FAVORITO
-					</Button>
-				</Card.Header>
-				<Card.Body>
-					<Card.Title>─────Card Title</Card.Title>
-					<Card.Text>
-						Some quick example text to build on the card title and make up the bulk of the cards content.
-					</Card.Text>
-				</Card.Body>
-			</Card>
-		</Container>
+		<Card id="card" style={{ width: "25rem" }}>
+			<Card.Header>
+				<iframe
+					width="356"
+					height="300"
+					src="https://www.youtube.com/embed/djV11Xbc914"
+					title="YouTube video player"
+					frameBorder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowFullScreen
+				/>
+				<Button id="btn" variant="primary">
+					<i className="fas fa-star " id="star" />
+					FAVORITO
+				</Button>
+			</Card.Header>
+			<Card.Body>
+				<Card.Title id="title">─────Card Title</Card.Title>
+				<Card.Text id="text">
+					Some quick example text to build on the card title and make up the bulk of the cards content.
+				</Card.Text>
+			</Card.Body>
+		</Card>
 	);
 };
-// Exercises.propTypes = {
-// 	title: PropType.string,
-// 	video: PropType.element,
-// 	text: PropType.string
-// };
+Cards.propTypes = {
+	video: PropType.string,
+	title: PropType.string,
+	text: PropType.string
+};
