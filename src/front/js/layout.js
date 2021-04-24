@@ -27,13 +27,8 @@ const Layout = () => {
 					<Route exact path="/register">
 						<Register />
 					</Route>
-<<<<<<< HEAD
-					<Route exact path="/card">
-						<Cards />
-=======
 					<Route exact path="/cardContainer">
 						<CardContainer />
->>>>>>> 679af1e1bc25b16c502c6e82d947b54ed5316ef6
 					</Route>
 				</Switch>
 				<Footer />
