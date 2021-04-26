@@ -8,11 +8,11 @@ export const Landing = () => {
 			{/* NAV */}
 
 			<div className="d-flex flex-row">
-				<Link className="navbar-brand ml-4" id="logo" to="/">
+				<Link className="navbar-brand mt-2 ml-4" id="logo" to="/">
 					YO NADO
 				</Link>
 				<button
-					className="navbar-brand mt-3 ml-auto mr-5"
+					className="navbar-brand mt-2 ml-auto mr-5"
 					id="loginbtn"
 					data-toggle="modal"
 					data-target="#loginexampleModal">
