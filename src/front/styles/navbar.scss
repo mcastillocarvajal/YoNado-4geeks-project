@@ -1,0 +1,42 @@
+#bg{
+    background-image: url('../img/navbar.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#logonav {
+    font-family: 'Jura', sans-serif;
+    color: white;
+    font-size: 150%;
+    letter-spacing: 5px;
+}
+#logonav:hover {
+    color: #d9d9d9
+}
+#nav-item {
+    font-family: 'Jura', sans-serif;
+    color: #d9d9d9;
+    font-size: 85%;
+}
+#drop-item {
+    font-family: 'Jura', sans-serif;
+    color: #043953;
+    font-size: 100%;
+}
+#nav-item:hover {
+    color: white; 
+}
+#nav-item::selection {
+    color: white;
+}
+#navbarDropdown {
+    font-family: 'Jura', sans-serif;
+    color: white;
+    font-size: 85%;
+}
+#navbarDropdown:hover {
+    color: #d9d9d9
+}
+#toggle{
+    color: white
+}

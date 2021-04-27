@@ -1,28 +1,14 @@
-.landing{
-    position: relative; 
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    background-color: #043953;
-}
-
-.landing::before { 
-    content: "";   
+.landing { 
     background-image: url('../img/bg.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed; 
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 40%;
+    background-color: #043953;
+    height: 100%;
+    width: 100%;
 }
 #logo {
-    position: relative;
-    left: 20%;
     font-family: 'Jura', sans-serif;
     color: white;
     font-size: 200%;
@@ -31,140 +17,61 @@
 #logo:hover {
     color: #d9d9d9
 }
+#loginbtn {
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+}
 #login {
-    position: relative;
-    top: 2.8%;
-    left: 650%;
     font-family: 'Jura', sans-serif;
     color: white;
-    font-size: 100%;
+    font-size: 75%;
+    text-decoration: none;
 }
 #login:hover {
     color: #d9d9d9
 }
-#jumbotron{
-    position: relative;    
-    background: rgba(255,255,255,0);
-    margin-top: 8%;
-    margin-left: -22%;
+#logincard {
+    background-color: #043953;
+    border-radius: 25px;
 }
-p{
+#loginclosebtn {
+    color: white;
+}
+#logintitle {
+    color: white;
+    font-family: 'Jura', sans-serif;
+}
+#loginlabel {
+    color: white;
+}
+#loginbody{
+    background-image: url('../img/login.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#logininput{
+    border: 2px solid white;     
+    border-radius: 30px;
+    font-family: Helvetica, "Font Awesome 5 Free";
+}
+#jumbotron{ 
+    background: rgba(255,255,255,0);
+    width: 45rem;
+}
+@media (max-width: 450px) {
+    #jumbotronh{ 
+    font-size: 210%;
+    width: 25rem;
+}
+}
+#lead{
     color: #3CD0FF;
 }
-small{
-    position: block; 
+#small{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 40%;
-    margin-left: -13%;
 }
 
-@media (max-width:1304px) {
-
-#login {
-   left: 450%;
-}
-
-
-}
-
-
-@media (max-width:1000px) {
-
-#login {
-   left: 250%;
-}
-#jumbotron{
-    margin-top: 15%;
-    margin-left: -25%;
-}
-small{
-
-    margin-top: 50%;
-    margin-left: -45%;
-}
-
-}
-
-
-@media (max-width:750px) {
-
-#login {
-   left: 250%;
-}
-#jumbotron{
-    margin-top: 25%;
-    margin-left: -35%;
-}
-small{
-
-    margin-top: 70%;
-    margin-left: -75%;
-}
-
-}
-
-
-@media (max-width:750px) {
-
-    #login {
-    left: 250%;
-    }
-    #jumbotron{
-        margin-top: 25%;
-        margin-left: -35%;
-    }
-    small{
-
-        margin-top: 70%;
-        margin-left: -75%;
-    }
-
-}
-
-
-@media (max-width:600px) {
-
-    #login {
-    left: 150%;
-    }
-    #jumbotron{
-        margin-top: 25%;
-        margin-left: -45%;
-    }
-    small{
-
-        margin-top: 100%;
-        margin-left: -95%;
-    }
-
-}
-
-@media (max-width:415px) {
-    #logo {
-    top: 1%;
-    left: 10%;
-    font-size: 150%;
-    }
-
-    #login {
-        top: 2.5%;
-        left: 75%;
-        font-size: 80%;
-    }
-    #jumbotron{
-        margin-top: 25%;
-        margin-left: -68%;
-    }
-    #jumbotron h1{
-        font-size: 190%;
-    }
-    #jumbotron h2{
-        font-size: 380%;
-    }
-    small{
-        margin-top: 145%;
-        margin-left: -65%;
-    }
-}

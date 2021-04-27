@@ -1,7 +1,7 @@
 import React from "react";
 import PropType from "prop-types";
 import { CardGroup, Card } from "react-bootstrap";
-import { Cards } from "./card";
+import { Cards } from "../component/card";
 
 export const CardContainer = () => {
 	return (
