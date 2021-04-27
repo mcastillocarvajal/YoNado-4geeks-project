@@ -1,18 +1,18 @@
 import React from "react";
 import PropType from "prop-types";
-import { Card, Button, Container, Image } from "react-bootstrap";
+import { Card, Button} from "react-bootstrap";
 
 import "../../styles/card.scss";
 
 export const Cards = props => {
 	//const { store, actions } = useContext(Context);
 	return (
-		<Card id="card" style={{ width: "25rem" }}>
+		<Card id="card" style={{ width: "23rem" }}>
 			<Card.Header>
 				<iframe
-					width="356"
+					width="326"
 					height="300"
-					src="https://www.youtube.com/embed/djV11Xbc914"
+					src={props.video}
 					title="YouTube video player"
 					frameBorder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -24,10 +24,11 @@ export const Cards = props => {
 				</Button>
 			</Card.Header>
 			<Card.Body>
-				<Card.Title id="title">─────Card Title</Card.Title>
-				<Card.Text id="text">
-					Some quick example text to build on the card title and make up the bulk of the cards content.
-				</Card.Text>
+				<Card.Title id="title">
+					─────
+					{props.title}
+				</Card.Title>
+				<Card.Text id="text">{props.text}</Card.Text>
 			</Card.Body>
 		</Card>
 	);
