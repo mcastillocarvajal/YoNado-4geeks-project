@@ -39,12 +39,14 @@ dd{
   -webkit-margin-start: 0;
 }
 
-/* Common style usar id */
+/* Common style */
 
-// html{ font-size: 62.5%; background: $white; }
-// body{
+//html{ font-size: 62.5%; background: $white; }
+
+// .body{
 //   font-family: 'Lato', sans-serif;
 //   color: $black;
+//   font-size: 62.5%;
 // }
 
 // h1{
@@ -67,19 +69,24 @@ dd{
 //   margin-bottom: 1.5em; // Cosmetic value
 // }
 
+
+
 main.day,
 main.night{
   @extend %clearfix;
   margin-top: 6rem;
+  font-size: 62.5%;
 }
 
 main.day,
 main.night .inner{
-  width: 90%;
+  width: 30%;
   max-width: 60rem;
   margin: 0 auto;
+  font-size: 62.5%;
 }
-main.day{ margin-top: 6rem; }
+main.day{ margin-top: 6rem;
+font-size: 62.5%; }
 
 main.night{
   padding: 6rem 0;
@@ -93,13 +100,16 @@ main.night{
 }
 
 article{
-  width: 30%;
+  width: 60%;
+  font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 main.day{
   article{
     float: left;
     margin: 0 2.5%;
+    font-size: 62.5%;
   }
   
   article:first-of-type{ margin-left: 0; }
@@ -115,15 +125,14 @@ main.night article{
   position: relative;
 	width: 100%;
   margin: 0 auto;
-  
+  font-size: 62.5%;
   margin-bottom: 1.5em; // Cosmetic value
 }
 
 .dropy__title{
   position: relative;
   display: block;
-  width: 100%;
-
+  width: 80%;
   border-bottom: 1px solid $blackAlpha;
   text-decoration: none;
   font-size: 1.6rem;
@@ -137,6 +146,7 @@ main.night article{
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    font-size: 62.5%;
   }
 
 
@@ -154,6 +164,7 @@ main.night article{
     border-top: $triangleSize solid $gray;
     border-left: $triangleSize*$triangleRatio solid transparent;
     border-right: $triangleSize*$triangleRatio solid transparent;
+    
   }
 }
 
@@ -192,8 +203,8 @@ main.night article{
   }
   li a{
     display: block;
-    padding: 1rem 1.5rem;
-    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
       
     color: $black;
     text-decoration: none;
@@ -208,8 +219,8 @@ main.night article{
   .dropy__header{
     border-bottom: 1px solid $blackAlpha;
     margin-bottom: 1.5rem;
-    padding: 1rem 1.5rem;
-    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
   }
   .selected{
     font-weight: 700 !important;
@@ -218,9 +229,10 @@ main.night article{
 }
 .dropy.open{
   .dropy__content ul{
-    max-height: 30rem;
+    max-height: 10rem;
     overflow-y: scroll;
     opacity: 1;
+    
   }
 }
 
@@ -231,6 +243,16 @@ main.night article{
     
     &:hover{ border-color: $lightGray; }
   }
+}
+#btn{
+    background: #13718E;
+    border-radius: 19.5px;
+    float: right; 
+    border: none;
+    width: 157px;
+    height: 39px;
+    left: 515px;
+    top: 809px;
 }
 
 hr {
@@ -248,5 +270,6 @@ hr {
                 width: 80vw;
                 margin: auto            
             }
+
     
 

@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Button, ButtonGroup, Row, Col, Nav, Table } from "react-bootstrap";
-import "../../styles/perfil.scss";
-//import { Dropdown } from "../component/dropdown";
+import "../../styles/perfil.module.scss";
+import { Tabla } from "../component/Tabla";
 
 export const Perfil = () => {
 	var dropy = {
@@ -77,12 +77,12 @@ export const Perfil = () => {
 
 	return (
 		<>
-			<div style={{ fontSize: "65.2%" }}>
+			<div>
 				<Row>
 					<main className="day d-flex justify-content-center">
-						<article className="mr-5">
+						<article className="mr-5 html">
 							<dl className="dropy">
-								<h4>Ejercicio</h4>
+								<h5>Ejercicio</h5>
 								<dt className="dropy__title">
 									<span>First dropy</span>
 								</dt>
@@ -107,7 +107,7 @@ export const Perfil = () => {
 						</article>
 						<article className="ml-5">
 							<dl className="dropy">
-								<h4>Distancia</h4>
+								<h5>Distancia</h5>
 								<dt className="dropy__title">
 									<span>Long dropy</span>
 								</dt>
@@ -142,7 +142,7 @@ export const Perfil = () => {
 					<main className="day d-flex justify-content-center">
 						<article className="mr-5">
 							<dl className="dropy">
-								<h4>Tiempo</h4>
+								<h5>Tiempo</h5>
 								<dt className="dropy__title">
 									<span>First dropy</span>
 								</dt>
@@ -167,7 +167,7 @@ export const Perfil = () => {
 						</article>
 						<article className="ml-5">
 							<dl className="dropy">
-								<h4>Fecha</h4>
+								<h5>Fecha</h5>
 								<dt className="dropy__title">
 									<span>Long dropy</span>
 								</dt>
@@ -198,70 +198,25 @@ export const Perfil = () => {
 						</article>
 					</main>
 				</Row>
-				<Row>
+				<Row className="mb-5 ">
 					<Col className="d-flex justify-content-center mt-5">
-						<Button className="btn " variant="primary" size="lg" type="submit">
+						<Button id="btn" variant="primary" size="lg" type="submit">
 							Agregar
 						</Button>
 					</Col>
 				</Row>
-
-				{/* <div className="d-flex justify-content-center mt-3" id="line">
-				<hr />
-			</div> */}
-
-				<Table responsive>
-					<thead>
-						<tr>
-							<th>#</th>
-							{Array.from({ length: 4 }).map((_, index) => (
-								<th key={index}>Table heading</th>
-							))}
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							{Array.from({ length: 4 }).map((_, index) => (
-								<td key={index}>Table cell {index}</td>
-							))}
-						</tr>
-						<tr>
-							<td>2</td>
-							{Array.from({ length: 4 }).map((_, index) => (
-								<td key={index}>Table cell {index}</td>
-							))}
-						</tr>
-						<tr>
-							<td>3</td>
-							{Array.from({ length: 4 }).map((_, index) => (
-								<td key={index}>Table cell {index}</td>
-							))}
-						</tr>
-					</tbody>
-				</Table>
+			</div>
+			<div>
+				<Row className="justify-content-center mt-4 mb-4">
+					<Tabla />
+				</Row>
 			</div>
 		</>
 	);
 };
 
 {
-	/* <main className="night">
-                        <div className="inner">
-                            <article>
-                                <dl className="dropy dark">
-                                    <dt className="dropy__title"><span>First dropy</span></dt>
-                                    <dd className="dropy__content">
-                                        <ul>
-                                            <li><a className="dropy__header">First dropy</a></li>
-                                            <li><a>Option n°1</a></li>
-                                            <li><a>Option n°2</a></li>
-                                            <li><a>Option n°3</a></li>
-                                        </ul>
-                                    </dd>
-                                    <input type="hidden" name="first" />
-                                </dl>
-                            </article>
-                        </div>
-                    </main> */
+	/* <div className="d-flex justify-content-center mt-3" id="line">
+				<hr />
+			</div> */
 }

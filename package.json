@@ -76,12 +76,15 @@
 		]
 	},
 	"dependencies": {
+		"@o2xp/react-datatable": "^1.1.66",
 		"bootstrap": "^4.6.0",
 		"jquery": "^3.6.0",
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
 		"react-bootstrap": "^1.5.2",
 		"react-dom": "^16.8.4",
+		"react-final-table": "^1.5.1",
+		"react-flexy-table": "^1.8.5",
 		"react-polyfills": "0.0.1",
 		"react-router-dom": "^5.2.0"
 	}

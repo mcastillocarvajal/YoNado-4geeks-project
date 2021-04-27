@@ -13,7 +13,6 @@ export const Home = () => {
 			<Landing />
 			<Icons />
 			<Register />
-			<Footer />
 		</>
 	);
 };
