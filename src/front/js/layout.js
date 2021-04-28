@@ -10,6 +10,10 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { CardContainer } from "./pages/cardContainer";
+import { WarmUp } from "./pages/warmUp";
+import { Exercises } from "./pages/exercises";
+import { Breathing } from "./pages/breathing";
+import { Mistakes } from "./pages/mistakes";
 
 //create your first component
 const Layout = () => {
