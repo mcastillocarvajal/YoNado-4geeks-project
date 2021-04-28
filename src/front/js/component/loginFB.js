@@ -12,13 +12,17 @@ export const LoginFB = () => {
 	return (
 		<>
 			<FacebookLogin
-				appId="513060493433284"
+				appId="879098049313561"
 				autoLoad={false}
 				fields="name,email,picture"
 				// onClick={componentClicked}
 				callback={responseFacebook}
 				textButton=""
-				icon={<button className="btn text-white">Inicia sesión con Facebook</button>}
+				icon={
+					<button className="btn text-white" id="fbicon">
+						Inicia sesión con Facebook
+					</button>
+				}
 				cssClass="fblogin"
 			/>
 		</>

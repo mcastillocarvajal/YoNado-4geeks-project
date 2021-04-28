@@ -68,7 +68,11 @@ export const Login = () => {
 					<div className="modal-footer">
 						<div className="d-flex">
 							<LoginFB />
-							<button type="submit" className="btn ml-5 mr-4" id="registerbtn" onClick={handleLogin}>
+							<button
+								type="submit"
+								className="btn btn-sm ml-5 mr-4"
+								id="registerbtn"
+								onClick={handleLogin}>
 								<i className="fas fa-sign-in-alt" id="registericon" />
 								&nbsp; Ingresar
 							</button>
