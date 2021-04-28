@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { Login } from "../component/login";
+import { Context } from "../store/appContext";
+import "../../styles/landing.scss";
 import "../../styles/register.scss";
 
 export const Register = () => {
+	const { store, actions } = useContext(Context);
+	const [name, setName] = useState("");
+	const [last_name, setLast_name] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [login, setLogin] = useState(false);
+
+	const handleJoinUs = () => {
+		actions.Register(name, last_name, email, password);
+		setLogin(true);
+	};
+
 	return (
 		<div className="d-flex flex-column mx-auto mt-4 mb-5">
 			<h6 className="text-dark text-center display-4 my-5" id="register">
@@ -13,19 +27,37 @@ export const Register = () => {
 				<h1 className="text-white text-center my-4 font-weight-light">Crea tu cuenta</h1>
 				<div className="form-group">
 					<label>Nombre</label>
-					<input id="registerinput" className="form-control" placeholder="&#xf2bd; Tu nombre" />
+					<input
+						id="registerinput"
+						className="form-control"
+						placeholder="&#xf2bd; Tu nombre"
+						onChange={e => setName(e.target.value)}
+					/>
+					<label className="mt-2">Apellido</label>
+					<input
+						id="registerinput"
+						className="form-control"
+						placeholder="&#xf2bd; Tu apellido"
+						onChange={e => setLast_name(e.target.value)}
+					/>
 					<label className="mt-2">Correo electrónico</label>
-					<input id="registerinput" className="form-control" placeholder="&#xf0e0;  nombre@correo.com" />
+					<input
+						id="registerinput"
+						className="form-control"
+						placeholder="&#xf0e0;  nombre@correo.com"
+						onChange={e => setEmail(e.target.value)}
+					/>
 					<label className="mt-2">Contraseña</label>
 					<input
 						id="registerinput"
 						type="password"
 						className="form-control"
 						placeholder="&#xf070; ••••••••"
+						onChange={e => setPassword(e.target.value)}
 					/>
 				</div>
 				<div className="d-flex justify-content-center mt-3">
-					<button type="submit" className="btn text-center mb-2" id="registerbtn">
+					<button type="submit" className="btn text-center mb-2" id="registerbtn" onClick={handleJoinUs}>
 						<i className="fas fa-sign-in-alt" id="registericon" />
 						&nbsp; Ingresar
 					</button>
@@ -39,63 +71,10 @@ export const Register = () => {
 					</button>
 				</small>
 			</div>
+
 			{/* LOGIN MODAL */}
 
-			<div className="modal fade" id="loginexampleModal" tabIndex="-1" aria-hidden="true">
-				<div className="modal-dialog modal-dialog-centered">
-					<div className="modal-content" id="logincard">
-						<div className="modal-header" id="loginheader">
-							<h5 className="modal-title" id="logintitle">
-								Inicia sesión
-							</h5>
-							<button
-								type="button"
-								className="close"
-								id="loginclosebtn"
-								data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div className="modal-body p-5" id="loginbody">
-							<form>
-								<div className="form-group">
-									<label className="mt-2" id="loginlabel">
-										Correo electrónico
-									</label>
-									<input
-										id="logininput"
-										className="form-control"
-										placeholder="&#xf0e0;  nombre@correo.com"
-									/>
-									<label className="mt-2" id="loginlabel">
-										Contraseña
-									</label>
-									<input
-										id="logininput"
-										type="password"
-										className="form-control"
-										placeholder="••••••••"
-									/>
-									<small>
-										<Link to="/" id="loginlabel" className="mt-2">
-											¿Olvidaste tu contraseña?
-										</Link>
-									</small>
-								</div>
-							</form>
-						</div>
-						<div className="modal-footer" id="loginheader">
-							<button type="button" className="btn btn-secondary" data-dismiss="modal">
-								Close
-							</button>
-							<button type="button" className="btn btn-primary">
-								Save changes
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
+			<Login />
 		</div>
 	);
 };

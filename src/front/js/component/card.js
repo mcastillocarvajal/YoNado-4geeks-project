@@ -46,7 +46,12 @@ export const Cards = props => {
 				<div className="modal-dialog modal-lg">
 					<div className="modal-content">
 						<div className="modal-header">
-							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+							<button
+								type="button"
+								className="close"
+								id="cardclosealonso"
+								data-dismiss="modal"
+								aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>

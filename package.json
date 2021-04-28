@@ -77,13 +77,9 @@
 	},
 	"dependencies": {
 		"bootstrap": "^4.6.0",
-<<<<<<< HEAD
 		"jquerry": "0.0.1-security",
 		"jquery": "^3.6.0",
 		"popper": "^1.0.1",
-=======
-		"jquery": "^3.6.0",
->>>>>>> c9eb15eca605d1783303d33a38ab26624b4255c6
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
 		"react-bootstrap": "^1.5.2",

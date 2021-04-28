@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 import "../../styles/navbar.scss";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div id="bg">
 			<nav className="navbar navbar-expand-lg">
@@ -62,7 +64,11 @@ export const Navbar = () => {
 									Actividad
 								</Link>
 								<div className="dropdown-divider" />
-								<Link className="dropdown-item" id="drop-item" href="#">
+								<Link
+									className="dropdown-item"
+									id="drop-item"
+									href="#"
+									onClick={() => actions.Logout()}>
 									Cerrar sesión
 								</Link>
 							</div>
