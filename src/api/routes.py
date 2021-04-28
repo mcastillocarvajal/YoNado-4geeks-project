@@ -37,3 +37,57 @@ def create_register():
     db.session.add(new_user)
     db.session.commit()
     return jsonify(body), 200
+
+
+# >>>>>>>  FAVORITES ENDPOINT
+
+
+@api.route('/favorite', methods=['POST'])
+@jwt_required()
+def create_favorite():
+
+    body = request.get_json()
+    new_favorite = Favorite(title=body["title"], description=body["description"], link=body["link"], user_id=body["user_id"])
+    db.session.add(new_favorite)
+    db.session.commit()
+    response = { "msg" : "Favorite added successfully" }
+    return jsonify(response), 200
+
+@api.route('/favorite/<int:id>', methods=['DELETE'])
+@jwt_required()
+def delete_favorite(id):
+
+    favorite = Favorite.query.get(id)
+    if favorite is None:
+        raise APIException('Favorite not found', status_code=404)
+    db.session.delete(favorite)
+    db.session.commit()
+    response = { "msg" : "Favorite deleted successfully" }
+    return jsonify(response), 200
+
+
+# >>>>>>>  ACTIVITY ENDPOINT
+
+
+@api.route('/activity', methods=['POST'])
+@jwt_required()
+def create_activity():
+
+    body = request.get_json()
+    new_activity = Activity(exercise=body["exercise"], distance=body["distance"], date=body["date"], lapse=body["lapse"], user_id=body["user_id"])
+    db.session.add(new_activity)
+    db.session.commit()
+    response = { "msg" : "Activity added successfully" }
+    return jsonify(response), 200
+
+@api.route('/activity/<int:id>', methods=['DELETE'])
+@jwt_required()
+def delete_activity(id):
+
+    activity = Activity.query.get(id)
+    if activity is None:
+        raise APIException('Activity not found', status_code=404)
+    db.session.delete(activity)
+    db.session.commit()
+    response = { "msg" : "Activity deleted successfully" }
+    return jsonify(response), 200
