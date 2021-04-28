@@ -1,6 +1,6 @@
 import React from "react";
 import PropType from "prop-types";
-import { Card, Button} from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 import "../../styles/card.scss";
 
@@ -8,7 +8,7 @@ export const Cards = props => {
 	//const { store, actions } = useContext(Context);
 	return (
 		<Card id="card" style={{ width: "23rem" }}>
-			<Card.Header>
+			<Card.Header id="header">
 				<iframe
 					width="326"
 					height="300"
