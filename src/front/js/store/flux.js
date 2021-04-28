@@ -1,46 +1,83 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			token: null,
+			user: [],
+			favorites: [],
+			activities: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			getSessionStorage: () => {
+				const token = sessionStorage.getItem("token");
+				if (token && token != "" && token != undefined) setStore({ token: token });
 			},
-
-			getMessage: () => {
-				// fetching data from the backend
-				fetch(process.env.BACKEND_URL + "/api/hello")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
+			Login: async (email, password) => {
+				const opts = {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						email: email,
+						password: password
+					})
+				};
+				try {
+					const resp = await fetch(process.env.BACKEND_URL + "/api/login", opts);
+					if (resp.status != 200) {
+						alert("Email o contraseña inválidos");
+						return false;
+					}
+					const data = await resp.json();
+					sessionStorage.setItem("token", data.access_token);
+					console.log(">>>>LOGIN TOKEN: ", data.access_token);
+					console.log(">>>>LOGIN USER: ", data.user);
+					console.log(">>>>LOGIN FAVORITES: ", data.user.favorites);
+					console.log(">>>>LOGIN ACTIVITIES: ", data.user.activities);
+					setStore({
+						token: data.access_token,
+						user: data.user,
+						favorites: data.favorites,
+						activities: data.activities
+					});
+					return true;
+				} catch (err) {
+					console.error(">>>LOGIN ERROR", err);
+				}
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
+			Logout: () => {
+				sessionStorage.removeItem("token");
+				setStore({
+					token: null,
+					user: [],
+					favorites: [],
+					activities: []
 				});
-
-				//reset the global store
-				setStore({ demo: demo });
+			},
+			Register: async (name, last_name, email, password) => {
+				const opts = {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						name: name,
+						last_name: last_name,
+						email: email,
+						password: password
+					})
+				};
+				try {
+					const resp = await fetch(process.env.BACKEND_URL + "/api/register", opts);
+					if (resp.status != 200) {
+						return false;
+					}
+					const data = await resp.json();
+					console.log(">>>>REGISTER DATA: ", data);
+					return true;
+				} catch (err) {
+					console.error(">>>REGISTER ERROR", err);
+				}
 			}
 		}
 	};

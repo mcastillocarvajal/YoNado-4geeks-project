@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Login } from "../component/login";
 import "../../styles/landing.scss";
 
 export const Landing = () => {
@@ -25,61 +26,7 @@ export const Landing = () => {
 
 			{/* LOGIN MODAL */}
 
-			<div className="modal fade" id="loginexampleModal" tabIndex="-1" aria-hidden="true">
-				<div className="modal-dialog modal-dialog-centered">
-					<div className="modal-content" id="logincard">
-						<div className="modal-header" id="loginheader">
-							<h5 className="modal-title" id="logintitle">
-								Inicia sesión
-							</h5>
-							<button
-								type="button"
-								className="close"
-								id="loginclosebtn"
-								data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div className="modal-body p-5" id="loginbody">
-							<form>
-								<div className="form-group">
-									<label className="mt-2" id="loginlabel">
-										Correo electrónico
-									</label>
-									<input
-										id="logininput"
-										className="form-control"
-										placeholder="&#xf0e0;  nombre@correo.com"
-									/>
-									<label className="mt-2" id="loginlabel">
-										Contraseña
-									</label>
-									<input
-										id="logininput"
-										type="password"
-										className="form-control"
-										placeholder="••••••••"
-									/>
-									<small>
-										<Link to="/" id="loginlabel" className="mt-2">
-											¿Olvidaste tu contraseña?
-										</Link>
-									</small>
-								</div>
-							</form>
-						</div>
-						<div className="modal-footer">
-							<div className="d-flex">
-								<button type="submit" className="btn" id="registerbtn">
-									<i className="fas fa-sign-in-alt" id="registericon" />
-									&nbsp; Ingresar
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<Login />
 
 			{/* JUMBOTRON */}
 

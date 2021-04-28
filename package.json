@@ -78,7 +78,9 @@
 	"dependencies": {
 		"@o2xp/react-datatable": "^1.1.66",
 		"bootstrap": "^4.6.0",
+		"jquerry": "0.0.1-security",
 		"jquery": "^3.6.0",
+		"popper": "^1.0.1",
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
 		"react-bootstrap": "^1.5.2",
