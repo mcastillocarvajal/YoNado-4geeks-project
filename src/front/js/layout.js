@@ -2,14 +2,14 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Home } from "./pages/home";
-import { Register } from "./pages/register";
-import { Cards } from "./pages/card";
 import { Perfil } from "./pages/perfil";
+import { CardContainer } from "./pages/cardContainer";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { CardContainer } from "./pages/cardContainer";
+import { Register } from "./component/register";
+import { Cards } from "./component/card";
 
 //create your first component
 const Layout = () => {
@@ -28,6 +28,7 @@ const Layout = () => {
 						<Register />
 					</Route>
 					<Route exact path="/cardContainer">
+						<Navbar />
 						<CardContainer />
 					</Route>
 					<Route exact path="/perfil">
