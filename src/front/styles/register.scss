@@ -1,43 +1,38 @@
-body{
-    background-color: none;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+#registercard {
+    background-color: #043953;
+    width: 25rem;
+    height: 33rem;
+    border-radius: 25px;
 }
-
-.formulary{
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 30px black;
-    color: black;
+#register{
+    font-family: 'Jura', sans-serif;
 }
-
-.form-control{
-    color: #c6c6c6;
+@media (max-width: 450px) {
+    #register{ 
+    font-size: 210%;
+    }
+}
+#registerbtn{
+    border-radius: 30px;
+    background-color: #3CD0FF;
+    width: 8rem; 
+    font-family: 'Jura', sans-serif;      
+}
+#registerinput{
+    border: 2px solid white;     
+    border-radius: 30px;
+    font-family: Helvetica, "Font Awesome 5 Free";
+}
+#registericon{
+    color: white;
+}
+#small{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#smalllink{
+    background-color: transparent;
+    text-decoration: none;
     border: none;
-    border-bottom: solid 1px black;
-}
-.signin{
-    background: black;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 700!important;
-    color: white;
-    transition: 0.5s ease-in;
-}
-
-.signin:hover{
-    color: white;
-}
-.register{
-    color: black;
-    background: white;
-    border-color: black;
-    padding: 10px;
-    transition: 0.5s ease-in;
-    text-decoration-style: none;
-    text-decoration-line: none;
-    font-size: 16px;
-    font-weight: 700!important;
 }

@@ -63,3 +63,65 @@
     text-transform: capitalize;
     color: #043953;
 }
+//Inicio Estilos Modal - Alonso
+.modal-body{
+    background: rgba(1, 16, 23, 0.94);
+}
+
+.col {
+    
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    position: relative; 
+} 
+
+.col iframe{
+    
+    height: 100%;
+    left: 0;
+    position: absolute; 
+    top: 0;
+    width: 100%;
+} 
+
+.modal-header {
+    background: rgba(1, 16, 23, 0.94);
+    
+}
+#cardclosealonso{
+    
+    color: white;
+    font-size: 50px;
+    
+    margin-left: 700px;
+   
+} 
+
+.footer{
+    background: rgba(1, 16, 23, 0.94);
+}
+
+.footer h3 {
+    display: flex;
+    justify-content: left;
+    align-content: flex-start;
+    color: #04C3FF;
+    font-family: 'Jura', sans-serif;
+    font-size: 18px;
+    padding-left: 30px;
+    
+}
+
+.footer p {
+     display: flex;
+    justify-content: left;
+    align-content: flex-start;
+    color: white;
+    font-family: 'Jura', sans-serif;
+    font-size: 12px;
+    padding-left: 90px;
+}
+
+//Fin de los estilos del Modal - Alonso
