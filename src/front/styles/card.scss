@@ -1,9 +1,14 @@
 #card{
     font-family: 'Raleway', sans-serif;
     margin: auto;
+    margin-bottom: 20px;
     padding: 0%;
+    border: none;
 }
 
+#header{
+    border: none;
+}
 #btn{
     background: #13718E;
     border-radius: 19.5px;
@@ -25,6 +30,7 @@
 
 
 #title{
+    border: none;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -32,6 +38,7 @@
     //letter-spacing: 6px;
     text-transform: uppercase;
     color: #3CD0FF;
+    text-align: right;
 }
 
 #text{
@@ -44,6 +51,18 @@
     margin-left: 65px;
 }
 
+#titleTabs{
+    margin-top: 35px;
+    margin-bottom: 35px;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 100px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #043953;
+}
 //Inicio Estilos Modal - Alonso
 .modal-body{
     background: rgba(1, 16, 23, 0.94);
