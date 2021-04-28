@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { Button, ButtonGroup, Row, Col, Nav, Table } from "react-bootstrap";
+import { Button, Form, Row, Col, Nav, Table } from "react-bootstrap";
 import "../../styles/perfil.module.scss";
 import { Tabla } from "../component/Tabla";
 import { profileButtons, ProfileButtons } from "../component/ProfileButtons";
@@ -91,128 +91,101 @@ export const Perfil = () => {
 			<div className="d-flex justify-content-center mt-3" id="line">
 				<hr />
 			</div>
-			<Row>
-				<main className="day d-flex justify-content-center">
-					<article className="mr-5 html">
-						<dl className="dropy">
-							<h5>Ejercicio</h5>
-							<dt className="dropy__title">
-								<span>First dropy</span>
-							</dt>
-							<dd className="dropy__content">
-								<ul>
-									<li>
-										<a className="dropy__header">First dropy</a>
-									</li>
-									<li>
-										<a>Option n°1</a>
-									</li>
-									<li>
-										<a>Option n°2</a>
-									</li>
-									<li>
-										<a>Option n°3</a>
-									</li>
-								</ul>
-							</dd>
-							<input type="hidden" name="first" />
-						</dl>
-					</article>
-					<article className="ml-5">
-						<dl className="dropy">
-							<h5>Distancia</h5>
-							<dt className="dropy__title">
-								<span>Long dropy</span>
-							</dt>
-							<dd className="dropy__content">
-								<ul>
-									<li>
-										<a className="dropy__header">Long dropy</a>
-									</li>
-									<li>
-										<a>Option n°1</a>
-									</li>
-									<li>
-										<a>Option n°2</a>
-									</li>
-									<li>
-										<a>Option with a really long name to test overflow</a>
-									</li>
-									<li>
-										<a>Option n°4</a>
-									</li>
-									<li>
-										<a>Option n°5</a>
-									</li>
-								</ul>
-							</dd>
-							<input type="hidden" name="first" />
-						</dl>
-					</article>
-				</main>
-			</Row>
-			<Row>
-				<main className="day d-flex justify-content-center">
-					<article className="mr-5">
-						<dl className="dropy">
-							<h5>Tiempo</h5>
-							<dt className="dropy__title">
-								<span>First dropy</span>
-							</dt>
-							<dd className="dropy__content">
-								<ul>
-									<li>
-										<a className="dropy__header">First dropy</a>
-									</li>
-									<li>
-										<a>Option n°1</a>
-									</li>
-									<li>
-										<a>Option n°2</a>
-									</li>
-									<li>
-										<a>Option n°3</a>
-									</li>
-								</ul>
-							</dd>
-							<input type="hidden" name="first" />
-						</dl>
-					</article>
-					<article className="ml-5">
-						<dl className="dropy">
-							<h5>Fecha</h5>
-							<dt className="dropy__calendar">
-								<span>
-									<DatePicker
-										selected={selectedDate}
-										onChange={date => setSelectedDate(date)}
-										dateFormat="dd/MM/yyyy"
-										placeHolderText="Seleccione fecha"
-										maxDate={new Date()}
-									/>
-								</span>
-							</dt>
-							<input type="hidden" name="first" />
-						</dl>
-					</article>
-				</main>
-			</Row>
-			<Row className="mb-5 justify-content-center mt-5">
-				<Col className="d-flex justify-content-center mt-5">
-					<Button id="btn" variant="primary" size="lg" type="submit">
-						Agregar
-					</Button>
-				</Col>
-			</Row>
+			<Form>
+				<Row>
+					<main className="day d-flex justify-content-center">
+						<article className="mr-5 html">
+							<dl className="dropy">
+								<h5>Ejercicio</h5>
+								<dt className="dropy__title">
+									<span>Seleccionar...</span>
+								</dt>
+								<dd className="dropy__content">
+									<ul>
+										<li>
+											<a>Estilo mariposa</a>
+										</li>
+										<li>
+											<a>Estilo libre</a>
+										</li>
+										<li>
+											<a>Estilo dorso</a>
+										</li>
+										<li>
+											<a>Estilo pecho</a>
+										</li>
+									</ul>
+								</dd>
+								<input type="hidden" name="first" />
+							</dl>
+						</article>
+						<article className="ml-5">
+							<dl className="dropy">
+								<h5>Distancia (m)</h5>
+								<dt>
+									<span>
+										<Form.Group controlId="formBasicEmail">
+											<Form.Label />
+											<Form.Control size="sm" type="number" />
+										</Form.Group>
+									</span>
+								</dt>
+								<input type="hidden" name="first" />
+							</dl>
+						</article>
+					</main>
+				</Row>
+				<Row>
+					<main className="day d-flex justify-content-center">
+						<article className="mr-5">
+							<dl className="dropy">
+								<h5>Tiempo (min)</h5>
+								<dt>
+									<span>
+										<Form.Group>
+											<Form.Label />
+											<Form.Control size="sm" type="number" />
+										</Form.Group>
+									</span>
+								</dt>
+								<input type="hidden" name="first" />
+							</dl>
+						</article>
+						<article className="ml-5">
+							<dl className="dropy">
+								<h5>Fecha</h5>
+								<dt className="dropy__calendar">
+									<span>
+										<DatePicker
+											selected={selectedDate}
+											onChange={date => setSelectedDate(date)}
+											dateFormat="dd/MM/yyyy"
+											placeHolderText="Seleccione fecha"
+											maxDate={new Date()}
+										/>
+									</span>
+								</dt>
+								<input type="hidden" name="first" />
+							</dl>
+						</article>
+					</main>
+				</Row>
+				<Row className="mb-5   mt-5">
+					<Col className="d-flex justify-content-center">
+						<Button id="btn" variant="primary" type="submit">
+							Agregar
+						</Button>
+					</Col>
+				</Row>
+			</Form>
 
 			<div className="d-flex justify-content-center mt-3" id="line">
 				<hr />
 			</div>
-			<div>
-				<Row className="justify-content-center mt-4 mb-4">
-					<Tabla />
-				</Row>
-			</div>
+
+			<Row className="justify-content-center mt-4 mb-4">
+				<Tabla />
+			</Row>
 		</>
 	);
 };
