@@ -1,0 +1,50 @@
+#loginbtn {
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+}
+#login {
+    font-family: 'Jura', sans-serif;
+    color: white;
+    font-size: 75%;
+    text-decoration: none;
+}
+#login:hover {
+    color: #d9d9d9
+}
+#loginheader {
+    background-color: #043953;
+    border-radius: 25px 25px 0px 0px;
+}
+#logincard {
+    background-color: #043953;
+    border-radius: 25px;
+}
+#loginclosebtn {
+    color: white;
+}
+#logintitle {
+    color: white;
+    font-family: 'Jura', sans-serif;
+}
+#loginlabel {
+    color: white;
+}
+#loginbody{
+    background-image: url('../img/login.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#logininput{
+    border: 2px solid white;     
+    border-radius: 30px;
+    font-family: Helvetica, "Font Awesome 5 Free";
+}
+.fblogin{
+    border: 2px solid #3b5998; 
+    border-radius: 30px;
+    background-color: #3b5998;
+    font-family: 'Jura', sans-serif;  
+    color: white;
+}

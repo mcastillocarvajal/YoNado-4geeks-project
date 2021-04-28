@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
-import "../../styles/landing.scss";
+import { LoginFB } from "../component/loginFB";
+import "../../styles/login.scss";
 
 export const Login = () => {
 	const { store, actions } = useContext(Context);
@@ -66,7 +67,8 @@ export const Login = () => {
 					</div>
 					<div className="modal-footer">
 						<div className="d-flex">
-							<button type="submit" className="btn" id="registerbtn" onClick={handleLogin}>
+							<LoginFB />
+							<button type="submit" className="btn ml-5 mr-4" id="registerbtn" onClick={handleLogin}>
 								<i className="fas fa-sign-in-alt" id="registericon" />
 								&nbsp; Ingresar
 							</button>
