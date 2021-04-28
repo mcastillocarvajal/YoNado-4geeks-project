@@ -58,7 +58,7 @@ export const Cards = props => {
 						<div className="modal-body">
 							<div className="container">
 								<div className="row">
-									<div className="col">
+									<div className="col" id="ColAlonso">
 										<iframe
 											width="600"
 											height="400"

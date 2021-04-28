@@ -5,6 +5,7 @@ import { Icons } from "../component/Icons";
 import { Register } from "../component/register";
 import { Perfil } from "./perfil";
 import { Landing } from "../component/landing";
+import { Footer } from "../component/footer";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
