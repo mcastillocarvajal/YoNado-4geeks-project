@@ -7,7 +7,6 @@ export const LoginFB = () => {
 		console.log(response);
 		console.log(">>>>>>TOKEN", response.accessToken);
 		console.log(">>>>>>NAME", response.name);
-		console.log(">>>>>>EMAIL", response.email);
 	};
 
 	return (
