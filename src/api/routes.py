@@ -50,7 +50,9 @@ def create_favorite():
     new_favorite = Favorite(title=body["title"], description=body["description"], link=body["link"], user_id=body["user_id"])
     db.session.add(new_favorite)
     db.session.commit()
-    response = { "msg" : "Favorite added successfully" }
+    response = {
+        "favorite": new_favorite.serialize(),
+    }
     return jsonify(response), 200
 
 @api.route('/favorite/<int:id>', methods=['DELETE'])
@@ -77,7 +79,9 @@ def create_activity():
     new_activity = Activity(exercise=body["exercise"], distance=body["distance"], date=body["date"], lapse=body["lapse"], user_id=body["user_id"])
     db.session.add(new_activity)
     db.session.commit()
-    response = { "msg" : "Activity added successfully" }
+    response = {
+        "activity": new_activity.serialize(),
+    }
     return jsonify(response), 200
 
 @api.route('/activity/<int:id>', methods=['DELETE'])
