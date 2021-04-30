@@ -1,18 +1,17 @@
 import React, { useContext } from "react";
 import PropType from "prop-types";
 import { Card, Button } from "react-bootstrap";
-//import { Context } from "../store/appContext";
+import { Context } from "../store/appContext";
 
 import "../../styles/card.scss";
-import { Link } from "react-router-dom";
 
 export const Cards = props => {
-	//  const { store, actions } = useContext(Context);
-	// const handleDelete = link => {
-	// 	const filter = store.favorites.filter(item => item.link == link);
-	// 	const id = filter.map(i => i.id);
-	// 	return id;
-	// };
+	const { store, actions } = useContext(Context);
+	const handleDelete = link => {
+		const filter = store.favorites.filter(item => item.link == link);
+		const id = filter.map(i => i.id);
+		return id;
+	};
 	return (
 		<Card id="card" style={{ width: "23rem" }}>
 			<Card.Header id="header">
@@ -25,25 +24,17 @@ export const Cards = props => {
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowFullScreen
 				/>
-				{/* {store.favorites.map((item, i) => {
-					if (item.link == link) {
-						return ( */}
 				<Button
 					id="btn"
 					variant="primary"
-					// onClick={() =>
-					// 	store.favorites.map(fav => fav.link).includes(item.link)
-					// 		? actions.deleteFavorite(handleDelete(item.link))
-					// 		: actions.addFavorite(item.title, item.description, item.link, store.id)
-					// }
-				>
+					onClick={() =>
+						store.favorites.map(fav => fav.link).includes(item.link)
+							? actions.deleteFavorite(handleDelete(item.id))
+							: actions.addFavorite(item.title, item.description, item.link, store.id)
+					}>
 					<i className="fas fa-star " id="star" />
 					FAVORITO
 				</Button>
-				{/* // 		);
-				// 	}
-				// })}
-				// ; */}
 			</Card.Header>
 			<Card.Body>
 				<Card.Title id="title">

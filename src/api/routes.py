@@ -33,7 +33,7 @@ def handle_login():
 @api.route('/register', methods=['POST'])
 def create_register():
     body = request.get_json()
-    new_user = User(name=body["name"], last_name="last_name", email=body["email"], password=body["password"])
+    new_user = User(name=body["name"], last_name=["last_name"], email=body["email"], password=body["password"])
     db.session.add(new_user)
     db.session.commit()
     return jsonify(body), 200
