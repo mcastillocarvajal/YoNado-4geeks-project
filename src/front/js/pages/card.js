@@ -7,10 +7,8 @@ import "../../styles/card.scss";
 
 export const Cards = props => {
 	const { store, actions } = useContext(Context);
-	const handleDelete = link => {
-		const filter = store.favorites.filter(item => item.link == link);
-		const id = filter.map(i => i.id);
-		return id;
+	const handleDelete = id => {
+		actions.deleteFavorite(id);
 	};
 	return (
 		<Card id="card" style={{ width: "23rem" }}>
@@ -28,9 +26,10 @@ export const Cards = props => {
 					id="btn"
 					variant="primary"
 					onClick={() =>
-						store.favorites.map(fav => fav.link).includes(item.link)
-							? actions.deleteFavorite(handleDelete(item.id))
-							: actions.addFavorite(item.title, item.description, item.link, store.id)
+						store.favorites.map(fav => fav.link).includes(props.link)
+							? actions.deleteFavorite(handleDelete(props.id))
+                            : actions.addFavorite(props.title, props.description, props.link, props.user_id)
+                            
 					}>
 					<i className="fas fa-star " id="star" />
 					FAVORITO
@@ -49,5 +48,9 @@ export const Cards = props => {
 Cards.propTypes = {
 	video: PropType.string,
 	title: PropType.string,
-	text: PropType.string
+	text: PropType.string,
+	link: PropType.string,
+	id: PropType.string,
+	description: PropType.string,
+	user_id: PropType.string
 };
