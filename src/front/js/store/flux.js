@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// >>>>>> LOGIN/LOGOUT/REGISTER MOISES
 
 			Login: async (email, password) => {
-                const store = getStore();
+				const store = getStore();
 				const opts = {
 					method: "POST",
 					headers: {
@@ -39,7 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						user: data.user,
 						favorites: data.user.favorites,
 						activities: data.user.activities
-                    });
+					});
 					console.log(">>>>LOGIN TOKEN: ", store.token);
 					console.log(">>>>LOGIN USER: ", store.user);
 					console.log(">>>>LOGIN FAVORITES: ", store.favorites);
