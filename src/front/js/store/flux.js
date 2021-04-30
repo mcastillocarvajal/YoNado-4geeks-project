@@ -15,6 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// >>>>>> LOGIN/LOGOUT/REGISTER MOISES
 
 			Login: async (email, password) => {
+                const store = getStore();
 				const opts = {
 					method: "POST",
 					headers: {
@@ -33,16 +34,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					const data = await resp.json();
 					sessionStorage.setItem("token", data.access_token);
-					console.log(">>>>LOGIN TOKEN: ", data.access_token);
-					console.log(">>>>LOGIN USER: ", data.user);
-					console.log(">>>>LOGIN FAVORITES: ", data.user.favorites);
-					console.log(">>>>LOGIN ACTIVITIES: ", data.user.activities);
 					setStore({
 						token: data.access_token,
 						user: data.user,
-						favorites: data.favorites,
-						activities: data.activities
-					});
+						favorites: data.user.favorites,
+						activities: data.user.activities
+                    });
+					console.log(">>>>LOGIN TOKEN: ", store.token);
+					console.log(">>>>LOGIN USER: ", store.user);
+					console.log(">>>>LOGIN FAVORITES: ", store.favorites);
+					console.log(">>>>LOGIN ACTIVITIES: ", store.activities);
 					return true;
 				} catch (err) {
 					console.error(">>>LOGIN ERROR", err);
