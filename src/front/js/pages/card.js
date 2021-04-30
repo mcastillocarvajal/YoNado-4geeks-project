@@ -28,8 +28,7 @@ export const Cards = props => {
 					onClick={() =>
 						store.favorites.map(fav => fav.link).includes(props.link)
 							? actions.deleteFavorite(handleDelete(props.id))
-                            : actions.addFavorite(props.title, props.description, props.link, props.user_id)
-                            
+							: actions.addFavorite(props.title, props.description, props.link, props.user_id)
 					}>
 					<i className="fas fa-star " id="star" />
 					FAVORITO
