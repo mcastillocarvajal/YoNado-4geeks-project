@@ -18,6 +18,10 @@
     color: #d9d9d9;
     font-size: 85%;
 }
+#nav-item:focus {
+    color: white;
+    text-shadow: 2px 2px 5px white;
+}
 #drop-item {
     font-family: 'Jura', sans-serif;
     color: #043953;
