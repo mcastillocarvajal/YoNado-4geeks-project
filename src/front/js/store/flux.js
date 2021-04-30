@@ -4,7 +4,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: null,
 			user: [],
 			favorites: [],
-			activities: []
+            activities: [],
+            resetpassEmail: [],
+            resetpassLink: []
 		},
 		actions: {
 			getSessionStorage: () => {
@@ -18,7 +20,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (activities && activities != "" && activities != undefined) setStore({ activities: activities });
 			},
 
-			// >>>>>> LOGIN/LOGOUT/REGISTER MOISES
+
+			// >>>>>> LOGIN/LOGOUT/REGISTER 
+
 
 			Login: async (email, password) => {
 				const store = getStore();
@@ -88,9 +92,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (err) {
 					console.error(">>>REGISTER ERROR", err);
 				}
-			},
+            },
+            
 
-			// >>>>>>> ADD/DELETE FAVORITES MOISES
+            // >>>>>>> ADD/DELETE FAVORITES 
+            
 
 			addFavorite: async (title, description, link, user_id) => {
 				const store = getStore();
@@ -140,7 +146,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			// >>>>>>> ADD/DELETE ACTIVITIES MOISES
+
+			// >>>>>>> ADD/DELETE ACTIVITIES
+
 
 			addActivity: async (exercise, distance, date, lapse, user_id) => {
 				const store = getStore();
@@ -189,9 +197,66 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (err) {
 					console.error(">>>DELETE ACTIVITY ERROR", err);
 				}
-			}
+            },
+            
 
-			// ↓↓↓ ADD MORE ACTIONS HERE ↓↓↓ (IF NEEDED)
+            // >>>>>>> RESET PASSWORD
+
+
+            ResetPass: async (email) => {
+				const opts = {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						email: email
+					})
+				};
+				try {
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/resetpassword`, opts);
+					if (resp.status != 200) {
+						alert("Correo inválido. Intente creando una cuenta!");
+					}
+					const data = await resp.json();
+					setStore({
+						resetpassEmail: data.user.email,
+						resetpassLink: data.link
+                    });
+					console.log(">>>>RESETPASS EMAIL: ", store.resetpassEmail);
+					console.log(">>>>RESETPASS LINK: ", store.resetpassLink);
+				} catch (err) {
+					console.error(">>>RESETPASS ERROR", err);
+				}
+            },
+            
+            NewPassword: async (email, password) => {
+				const opts = {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+                        email: email,
+                        password: password
+					})
+				};
+				try {
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/password`, opts);
+					if (resp.status != 200) {
+						alert("Por favor intente de nuevo!");
+					}
+					const data = await resp.json();
+					console.log(">>>>NEWPASSWORD ", data);
+				} catch (err) {
+					console.error(">>>NEWPASSWORD ERROR", err);
+				}
+			},
+
+
+            // ↓↓↓ ADD MORE ACTIONS HERE ↓↓↓ (IF NEEDED)
+            
+
 		}
 	};
 };
