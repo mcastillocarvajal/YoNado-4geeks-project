@@ -26,7 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/login", opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/login`, opts);
 					if (resp.status != 200) {
 						alert("Email o contraseña inválidos");
 						return false;
@@ -71,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/register", opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/register`, opts);
 					if (resp.status != 200) {
 						return false;
 					}
@@ -101,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/favorite", opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/favorite`, opts);
 					if (resp.status != 200) {
 						alert("ADD FAVORITE ERROR");
 					}
@@ -121,7 +121,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/favorite/" + `${id}`, opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/favorite/${id}`, opts);
 					if (resp.status != 200) {
 						alert("DELETE FAVORITE ERROR");
 					}
@@ -152,7 +152,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/activity", opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/activity`, opts);
 					if (resp.status != 200) {
 						alert("ADD ACTIVITY ERROR");
 					}
@@ -172,7 +172,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/activity/" + `${id}`, opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/activity/${id}`, opts);
 					if (resp.status != 200) {
 						alert("DELETE ACTIVITY ERROR");
 					}
