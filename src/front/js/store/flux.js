@@ -15,6 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// >>>>>> LOGIN/LOGOUT/REGISTER MOISES
 
 			Login: async (email, password) => {
+                const store = getStore();
 				const opts = {
 					method: "POST",
 					headers: {
@@ -26,23 +27,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/login", opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/login`, opts);
 					if (resp.status != 200) {
 						alert("Email o contraseña inválidos");
 						return false;
 					}
 					const data = await resp.json();
 					sessionStorage.setItem("token", data.access_token);
-					console.log(">>>>LOGIN TOKEN: ", data.access_token);
-					console.log(">>>>LOGIN USER: ", data.user);
-					console.log(">>>>LOGIN FAVORITES: ", data.user.favorites);
-					console.log(">>>>LOGIN ACTIVITIES: ", data.user.activities);
 					setStore({
 						token: data.access_token,
 						user: data.user,
-						favorites: data.favorites,
-						activities: data.activities
-					});
+						favorites: data.user.favorites,
+						activities: data.user.activities
+                    });
+					console.log(">>>>LOGIN TOKEN: ", store.token);
+					console.log(">>>>LOGIN USER: ", store.user);
+					console.log(">>>>LOGIN FAVORITES: ", store.favorites);
+					console.log(">>>>LOGIN ACTIVITIES: ", store.activities);
 					return true;
 				} catch (err) {
 					console.error(">>>LOGIN ERROR", err);
@@ -71,7 +72,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/register", opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/register`, opts);
 					if (resp.status != 200) {
 						return false;
 					}
@@ -101,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/favorite", opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/favorite`, opts);
 					if (resp.status != 200) {
 						alert("ADD FAVORITE ERROR");
 					}
@@ -121,7 +122,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/favorite/" + `${id}`, opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/favorite/${id}`, opts);
 					if (resp.status != 200) {
 						alert("DELETE FAVORITE ERROR");
 					}
@@ -152,7 +153,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/activity", opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/activity`, opts);
 					if (resp.status != 200) {
 						alert("ADD ACTIVITY ERROR");
 					}
@@ -172,7 +173,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				};
 				try {
-					const resp = await fetch(process.env.BACKEND_URL + "/api/activity/" + `${id}`, opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/activity/${id}`, opts);
 					if (resp.status != 200) {
 						alert("DELETE ACTIVITY ERROR");
 					}
