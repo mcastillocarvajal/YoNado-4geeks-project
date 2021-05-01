@@ -26,7 +26,7 @@ export const ForgotPass = () => {
 					¿Olvidaste tu contraseña?
 				</h6>
 				{store.resetpassEmail ? (
-					<div style={{ height: "35vh" }}>
+					<div>
 						<h2 className="text-center">
 							Hemos enviado un link para restablecer la contraseña a tu correo!
 						</h2>

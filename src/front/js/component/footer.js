@@ -3,8 +3,8 @@ import "../../styles/footer.scss";
 import cindeImageUrl from "../../img/cinde-logo.png";
 
 export const Footer = () => (
-	<footer id="ftr">
-		<div className="container">
+	<footer id="ftr" className="mt-5">
+		<div className="container mt-5">
 			<div className="row justify-content-center">
 				<div className="col-m-3">
 					<div id="titulo">
@@ -12,10 +12,10 @@ export const Footer = () => (
 					</div>
 				</div>
 			</div>
-			<div className="row justify-content-center">
+			<div className="row justify-content-center mt-3">
 				<div className="col-m-3">
 					<div>
-						<p id="parrafo">
+						<p id="parrafo" className="text-center">
 							Este página, fue realizada con fines educativos. Como referencia para nuestro proyecto
 							final. Agradecemos a todas las empresas que estuvieron involucradas para que esto pueda ser
 							realidad.
@@ -23,7 +23,7 @@ export const Footer = () => (
 					</div>
 				</div>
 			</div>
-			<div className="row justify-content-center">
+			<div className="row justify-content-center mt-2 mb-5">
 				<div className="col-m-3">
 					<div>
 						<a href="https://4geeksacademy.com/es/inicio" id="icono1">
