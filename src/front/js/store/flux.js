@@ -3,19 +3,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			token: null,
 			user: [],
+			userName: [],
 			favorites: [],
 			activities: [],
+			fbemail: [],
 			resetpassEmail: ""
 		},
 		actions: {
 			getSessionStorage: () => {
 				const token = sessionStorage.getItem("token");
 				const user = JSON.parse(localStorage.getItem("user"));
+				const userName = JSON.parse(localStorage.getItem("userName"));
 				const favorites = JSON.parse(localStorage.getItem("favorites"));
 				const activities = JSON.parse(localStorage.getItem("activities"));
 				const resetpassEmail = JSON.parse(localStorage.getItem("resetpassEmail"));
 				if (token && token != "" && token != undefined) setStore({ token: token });
 				if (user && user != "" && user != undefined) setStore({ user: user });
+				if (userName && userName != "" && userName != undefined) setStore({ userName: userName });
 				if (favorites && favorites != "" && favorites != undefined) setStore({ favorites: favorites });
 				if (activities && activities != "" && activities != undefined) setStore({ activities: activities });
 				if (resetpassEmail && resetpassEmail != "" && resetpassEmail != undefined)
@@ -39,17 +43,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const resp = await fetch(`${process.env.BACKEND_URL}/api/login`, opts);
 					if (resp.status != 200) {
-						alert("Email o contraseña inválidos");
+						alert("Correo o contraseña inválidos");
 						return false;
 					}
 					const data = await resp.json();
 					sessionStorage.setItem("token", data.access_token);
 					localStorage.setItem("user", JSON.stringify(data.user));
+					localStorage.setItem("userName", JSON.stringify(data.user.name));
 					localStorage.setItem("favorites", JSON.stringify(data.user.favorites));
 					localStorage.setItem("activities", JSON.stringify(data.user.activities));
 					setStore({
 						token: data.access_token,
 						user: data.user,
+						userName: data.user.name,
 						favorites: data.user.favorites,
 						activities: data.user.activities
 					});
@@ -249,6 +255,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (err) {
 					console.error(">>>NEWPASSWORD ERROR", err);
 				}
+			},
+
+			Facebook: (email, name, token) => {
+				setStore({
+					token: token,
+					userName: name,
+					fbemail: email
+				});
 			}
 
 			// ↓↓↓ ADD MORE ACTIONS HERE ↓↓↓ (IF NEEDED)

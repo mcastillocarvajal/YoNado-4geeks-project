@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Login } from "../component/login";
 import { Context } from "../store/appContext";
 import "../../styles/landing.scss";
 import "../../styles/register.scss";
@@ -33,10 +32,6 @@ export const Register = () => {
 							</Link>
 						</button>
 					</h2>
-
-					{/* LOGIN MODAL */}
-
-					<Login />
 				</div>
 			) : (
 				<>
@@ -85,17 +80,13 @@ export const Register = () => {
 						</div>
 						<small id="small">
 							Ya eres miembro?{" "}
-							<button id="loginbtn" data-toggle="modal" data-target="#loginexampleModal">
-								<Link to="/" id="smalllink">
+							<button id="loginbtn">
+								<Link to="/login" id="smalllink">
 									&nbsp;Ingresa aquí
 								</Link>
 							</button>
 						</small>
 					</div>
-
-					{/* LOGIN MODAL */}
-
-					<Login />
 				</>
 			)}
 		</div>

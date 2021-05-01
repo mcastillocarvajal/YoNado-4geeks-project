@@ -15,6 +15,7 @@ import { Register } from "./component/register";
 import { PrivateRoute } from "./component/privateRoute";
 import { ForgotPass } from "./component/forgotPass";
 import { NewPassword } from "./component/resetPass";
+import { Login } from "./component/login";
 
 //create your first component
 const Layout = () => {
@@ -29,6 +30,9 @@ const Layout = () => {
 				<Switch>
 					<Route exact path="/">
 						<Home />
+					</Route>
+					<Route exact path="/login">
+						<Login />
 					</Route>
 					<Route exact path="/register">
 						<Register />

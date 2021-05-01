@@ -52,7 +52,7 @@ export const ForgotPass = () => {
 									id="registerbtn"
 									onClick={handleForgotPass}>
 									<i className="fas fa-sign-in-alt" id="registericon" />
-									&nbsp; Enviar
+									&nbsp; Restablecer contraseña
 								</button>
 							</div>
 						</div>

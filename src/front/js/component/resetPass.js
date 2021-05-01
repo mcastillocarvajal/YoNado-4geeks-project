@@ -69,7 +69,7 @@ export const NewPassword = () => {
 								id="registerbtn"
 								onClick={handleNewPassword}>
 								<i className="fas fa-sign-in-alt" id="registericon" />
-								&nbsp; Cambiar
+								&nbsp; Actualizar contraseña
 							</button>
 						</div>
 					</div>
