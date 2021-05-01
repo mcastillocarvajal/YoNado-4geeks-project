@@ -38,6 +38,7 @@
     //letter-spacing: 6px;
     text-transform: uppercase;
     color: #3CD0FF;
+     cursor: pointer;
 }
 
 #text{
@@ -85,7 +86,7 @@
     width: 100%;
 } 
 
-.modal-header {
+.modal-content {
     background: rgba(1, 16, 23, 0.94);
     
 }
@@ -121,6 +122,10 @@
     font-family: 'Jura', sans-serif;
     font-size: 12px;
     padding-left: 90px;
+}
+
+.cerrar{
+    padding-right: 20px;
 }
 
 //Fin de los estilos del Modal - Alonso

@@ -24,14 +24,14 @@ export const WarmUp = () => {
 				<Col sm={4}>
 					<Cards
 						video="https://www.youtube.com/embed/ZBpRvlkkVQg"
-						title="Círculos con los brazos"
+						title="Círculos-con-los-brazos"
 						text="Este ejercicio se dirige a tus hombros, tríceps, espalda y bíceps. Prepara las articulaciones de tus hombros antes de nadar. Es muy sencillo, basta con dibujar círculos con los brazos hacia delante y hacia atrás durante 30 segundos en cada dirección."
 					/>
 				</Col>
 				<Col sm={4}>
 					<Cards
 						video="https://www.youtube.com/embed/lD6z554WPbk"
-						title="Rotación de cuello"
+						title="Rotación-de-cuello"
 						text="Realiza movimientos lentos en el cuello hacia la derecha e izquierda para reducir la tensión en las cervicales."
 					/>
 				</Col>
@@ -49,14 +49,14 @@ export const WarmUp = () => {
 				<Col sm={4}>
 					<Cards
 						video="https://www.youtube.com/embed/hhtHvWaXLak"
-						title="Calentamiento de la parte inferior del cuerpo"
+						title="Calentamiento-de-la-parte-nferior-del-cuerpo"
 						text="Ayuda a disminuir el riego de lesiones y mejorar el rendimiento en el entrenamiento"
 					/>
 				</Col>
 				<Col sm={4}>
 					<Cards
 						video="https://www.youtube.com/embed/2coEG3_7LT0"
-						title="Calentamiento de la parte superior del cuerpo"
+						title="Calentamiento-de-la-parte-superior-del-cuerpo"
 						text="Estos ejercicios de preparación del tren superior (tronco, hombros, brazos y cuello), deberás realizarlos en seco antes de comenzar la actividad física, son muy aconsejables, ya que te evitarán lesiones y sobrecargas musculares mientras nadas y minimizarán el riesgo de que tengas agujetas. "
 					/>
 				</Col>
@@ -72,7 +72,7 @@ export const WarmUp = () => {
 				<Col sm={4}>
 					<Cards
 						video="https://www.youtube.com/embed/u9yeOcfI4Wg"
-						title="Estiramientos después de nadar"
+						title="Estiramientos-después-de-nadar"
 						text="Resulta esencial reservar unos minutos para la sesión de estiramiento tras haber nadado, independientemente de la duración o intensidad de la actividad que hayas realizado en el agua.
                     Los estiramientos te permitirán además evitar las sobrecargas musculares y aumentarán la flexibilidad de tu cuerpo."
 					/>
@@ -80,7 +80,7 @@ export const WarmUp = () => {
 				<Col sm={4}>
 					<Cards
 						video="https://www.youtube.com/embed/8fr_WUKzqBU"
-						title="Estiramientos dentro del agua"
+						title="Estiramientos-dentro-del-agua"
 						text="Aumenta la flexibilidad y agilidad en el desempeño.
                     Facilita la ejecución de ciertas técnicas especializadas de nado.
                     Ayuda a controlar la fuerza en los músculos.
