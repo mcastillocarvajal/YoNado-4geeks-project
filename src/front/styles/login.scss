@@ -3,6 +3,12 @@
     text-decoration: none;
     border: none;
 }
+#loginbtn2{
+    border-radius: 30px;
+    background-color: #3CD0FF;
+    width: auto; 
+    font-family: 'Jura', sans-serif;      
+}
 #login {
     font-family: 'Jura', sans-serif;
     color: white;
@@ -41,6 +47,11 @@
     border-radius: 30px;
     font-family: Helvetica, "Font Awesome 5 Free";
 }
+#logininput2{
+    border: 2px solid white;     
+    border-radius: 30px;
+    font-family: Helvetica, "Font Awesome 5 Free";
+}
 .fblogin{
     border: 2px solid #3b5998; 
     border-radius: 30px;
@@ -51,4 +62,7 @@
 #fbicon{
     border: none; 
     border-radius: 30px;
+}
+#loginicon{
+    color: white;
 }

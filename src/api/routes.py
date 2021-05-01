@@ -25,14 +25,14 @@ def handle_resetpassword():
         return jsonify({"msg": "Email not found"}), 401
 
     access_token = create_access_token(identity=email)
-    link = access_token[249:]
+    link = os.environ.get('BACKEND_URL')
 
     message = Mail(
         from_email='yonado4geeks@gmail.com',
         to_emails=email,
         subject='Restablecer contraseña',
         html_content=
-        f'<h3>Hola {user.name},<h3><br></br><p>Recibimos tu solicitud para restablecer tu acceso en Yo Nado.</p><br></br><p>Accede a este link para cambiar tu contraseña: <a href="https://3000-indigo-bison-5u2nk30k.ws-us04.gitpod.io/reset/{link}">Click aquí!</a></p>')
+        f'<h3>Hola {user.name},<h3><br></br><p>Recibimos tu solicitud para restablecer tu acceso en Yo Nado.</p><br></br><p>Accede a este link para cambiar tu contraseña: https://3000-violet-rabbit-cj7idgme.ws-us04.gitpod.io/resetpassword/DyhsHSAI46sdal</p>')
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
@@ -41,7 +41,7 @@ def handle_resetpassword():
         print(response.headers)
         data = {
             "user": user.serialize(),
-            "link": link,
+            "access_token": access_token,
         }
         return jsonify(data)
 
@@ -92,7 +92,7 @@ def handle_login():
 @api.route('/register', methods=['POST'])
 def create_register():
     body = request.get_json()
-    new_user = User(name=body["name"], last_name=["last_name"], email=body["email"], password=body["password"])
+    new_user = User(name=body["name"], last_name=body["last_name"], email=body["email"], password=body["password"])
     db.session.add(new_user)
     db.session.commit()
     return jsonify(body), 200

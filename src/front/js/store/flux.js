@@ -4,9 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: null,
 			user: [],
 			favorites: [],
-            activities: [],
-            resetpassEmail: [],
-            resetpassLink: []
+			activities: [],
+			resetpassEmail: ""
 		},
 		actions: {
 			getSessionStorage: () => {
@@ -14,15 +13,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const user = JSON.parse(localStorage.getItem("user"));
 				const favorites = JSON.parse(localStorage.getItem("favorites"));
 				const activities = JSON.parse(localStorage.getItem("activities"));
+				const resetpassEmail = JSON.parse(localStorage.getItem("resetpassEmail"));
 				if (token && token != "" && token != undefined) setStore({ token: token });
 				if (user && user != "" && user != undefined) setStore({ user: user });
 				if (favorites && favorites != "" && favorites != undefined) setStore({ favorites: favorites });
 				if (activities && activities != "" && activities != undefined) setStore({ activities: activities });
+				if (resetpassEmail && resetpassEmail != "" && resetpassEmail != undefined)
+					setStore({ resetpassEmail: resetpassEmail });
 			},
 
-
-			// >>>>>> LOGIN/LOGOUT/REGISTER 
-
+			// >>>>>> LOGIN/LOGOUT/REGISTER
 
 			Login: async (email, password) => {
 				const store = getStore();
@@ -92,11 +92,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (err) {
 					console.error(">>>REGISTER ERROR", err);
 				}
-            },
-            
+			},
 
-            // >>>>>>> ADD/DELETE FAVORITES 
-            
+			// >>>>>>> ADD/DELETE FAVORITES
 
 			addFavorite: async (title, description, link, user_id) => {
 				const store = getStore();
@@ -146,9 +144,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-
 			// >>>>>>> ADD/DELETE ACTIVITIES
-
 
 			addActivity: async (exercise, distance, date, lapse, user_id) => {
 				const store = getStore();
@@ -197,13 +193,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (err) {
 					console.error(">>>DELETE ACTIVITY ERROR", err);
 				}
-            },
-            
+			},
 
-            // >>>>>>> RESET PASSWORD
+			// >>>>>>> RESET PASSWORD
 
-
-            ResetPass: async (email) => {
+			ResetPass: async email => {
+				const store = getStore();
 				const opts = {
 					method: "POST",
 					headers: {
@@ -219,26 +214,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert("Correo inválido. Intente creando una cuenta!");
 					}
 					const data = await resp.json();
+					localStorage.setItem("resetpassEmail", JSON.stringify(data.user.email));
 					setStore({
-						resetpassEmail: data.user.email,
-						resetpassLink: data.link
-                    });
+						resetpassEmail: data.user.email
+					});
 					console.log(">>>>RESETPASS EMAIL: ", store.resetpassEmail);
-					console.log(">>>>RESETPASS LINK: ", store.resetpassLink);
 				} catch (err) {
 					console.error(">>>RESETPASS ERROR", err);
 				}
-            },
-            
-            NewPassword: async (email, password) => {
+			},
+
+			NewPassword: async (email, password) => {
 				const opts = {
 					method: "PUT",
 					headers: {
 						"Content-Type": "application/json"
 					},
 					body: JSON.stringify({
-                        email: email,
-                        password: password
+						email: email,
+						password: password
 					})
 				};
 				try {
@@ -248,15 +242,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					const data = await resp.json();
 					console.log(">>>>NEWPASSWORD ", data);
+					setStore({
+						resetpassEmail: ""
+					});
+					localStorage.removeItem("resetpassEmail");
 				} catch (err) {
 					console.error(">>>NEWPASSWORD ERROR", err);
 				}
-			},
+			}
 
-
-            // ↓↓↓ ADD MORE ACTIONS HERE ↓↓↓ (IF NEEDED)
-            
-
+			// ↓↓↓ ADD MORE ACTIONS HERE ↓↓↓ (IF NEEDED)
 		}
 	};
 };

@@ -51,7 +51,7 @@ export const Login = () => {
 											Contraseña
 										</label>
 										<input
-											id="logininput"
+											id="logininput2"
 											type="password"
 											className="form-control"
 											placeholder="••••••••"
@@ -59,7 +59,7 @@ export const Login = () => {
 											onChange={e => setPassword(e.target.value)}
 										/>
 										<small>
-											<Link to="/" id="loginlabel" className="mt-2">
+											<Link to="/forgotpassword" id="loginlabel" className="mt-2">
 												¿Olvidaste tu contraseña?
 											</Link>
 										</small>
@@ -72,9 +72,9 @@ export const Login = () => {
 									<button
 										type="submit"
 										className="btn btn-sm ml-5 mr-4"
-										id="registerbtn"
+										id="loginbtn2"
 										onClick={handleLogin}>
-										<i className="fas fa-sign-in-alt" id="registericon" />
+										<i className="fas fa-sign-in-alt" id="loginicon" />
 										&nbsp; Ingresar
 									</button>
 								</div>

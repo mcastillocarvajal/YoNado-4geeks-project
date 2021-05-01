@@ -58,7 +58,7 @@ export const Navbar = () => {
 								{store.user.name}
 							</Link>
 							<div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-								<Link className="dropdown-item" id="drop-item" to="/favoritos">
+								<Link className="dropdown-item" id="drop-item" to="/">
 									Favoritos
 								</Link>
 								<Link className="dropdown-item" id="drop-item" to="/perfil">
