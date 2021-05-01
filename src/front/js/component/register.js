@@ -10,27 +10,24 @@ export const Register = () => {
 	const [last_name, setLast_name] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [register, setRegister] = useState(false);
 
-	const handleJoinUs = () => {
+	function handleJoinUs(e) {
+		e.preventDefault;
 		actions.Register(name, last_name, email, password);
-		setRegister(true);
-	};
+	}
 
 	return (
 		<div className="d-flex flex-column mx-auto mt-4 mb-5">
 			<h6 className="text-dark text-center display-4 my-5" id="register">
-				Bienvenido a YO NADO!
+				Bienvenido a Yo Nado!
 			</h6>
-			{register ? (
+			{store.register ? (
 				<div style={{ height: "50vh" }}>
 					<h2 className="text-center">
 						Tu cuenta ha sido creada exitosamente! Inica sesión
-						<button id="loginbtn" data-toggle="modal" data-target="#loginexampleModal">
-							<Link to="/" id="smalllink">
-								&nbsp;aquí
-							</Link>
-						</button>
+						<Link to="/login" id="smalllink">
+							&nbsp;aquí
+						</Link>
 					</h2>
 				</div>
 			) : (
@@ -71,7 +68,7 @@ export const Register = () => {
 						<div className="d-flex justify-content-center mt-3">
 							<button
 								type="submit"
-								className="btn text-center mb-2"
+								className="btn text-center mt-3 mb-2"
 								id="registerbtn"
 								onClick={handleJoinUs}>
 								<i className="fas fa-sign-in-alt" id="registericon" />

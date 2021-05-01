@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			token: null,
+			register: false,
 			user: [],
 			userName: [],
 			favorites: [],
@@ -57,7 +58,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						user: data.user,
 						userName: data.user.name,
 						favorites: data.user.favorites,
-						activities: data.user.activities
+						activities: data.user.activities,
+						register: false
 					});
 					console.log(">>>>LOGIN TOKEN: ", store.token);
 					console.log(">>>>LOGIN USER: ", store.user);
@@ -75,6 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 			},
 			Register: async (name, last_name, email, password) => {
+				const store = getStore();
 				const opts = {
 					method: "POST",
 					headers: {
@@ -94,6 +97,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					const data = await resp.json();
 					console.log(">>>>REGISTER DATA: ", data);
+					setStore({ register: true });
 					return true;
 				} catch (err) {
 					console.error(">>>REGISTER ERROR", err);
