@@ -13,6 +13,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Register } from "./component/register";
+import { Favorites } from "./component/Favorites";
 
 //create your first component
 const Layout = () => {
@@ -52,6 +53,9 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/perfil">
 						<Perfil />
+					</Route>
+					<Route exact path="/favorites">
+						<Favorites />
 					</Route>
 				</Switch>
 				<Footer />

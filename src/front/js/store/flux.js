@@ -4,7 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			token: null,
 			user: [],
 			favorites: [],
-			activities: []
+			activities: [],
+			isLogIn: false
 		},
 		actions: {
 			getSessionStorage: () => {
@@ -15,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// >>>>>> LOGIN/LOGOUT/REGISTER MOISES
 
 			Login: async (email, password) => {
+				const store = getStore();
 				const opts = {
 					method: "POST",
 					headers: {
@@ -40,9 +42,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({
 						token: data.access_token,
 						user: data.user,
-						favorites: data.favorites,
-						activities: data.activities
+						favorites: data.user.favorites,
+						activities: data.user.activities,
+						isLogIn: true
 					});
+					console.log(">>>>PRUEBA HELP ", store.activities);
 					return true;
 				} catch (err) {
 					console.error(">>>LOGIN ERROR", err);

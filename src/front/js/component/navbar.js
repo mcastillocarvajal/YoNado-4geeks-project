@@ -26,29 +26,29 @@ export const Navbar = () => {
 				<div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 					<ul className="navbar-nav">
 						<li className="nav-item">
-							<Link className="nav-link" href="#" id="nav-item">
+							<Link className="nav-link" to="#" id="nav-item">
 								Ejercicios
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" href="#" id="nav-item">
+							<Link className="nav-link" to="#" id="nav-item">
 								Respiración
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" href="#" id="nav-item">
+							<Link className="nav-link" to="#" id="nav-item">
 								Calentamiento
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" href="#" id="nav-item">
+							<Link className="nav-link" to="#" id="nav-item">
 								Errores más comunes
 							</Link>
 						</li>
 						<li className="nav-item dropdown">
 							<Link
 								className="nav-link dropdown-toggle"
-								href="#"
+								to="#"
 								id="navbarDropdown"
 								role="button"
 								data-toggle="dropdown"
@@ -57,18 +57,14 @@ export const Navbar = () => {
 								Nombre Persona
 							</Link>
 							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<Link className="dropdown-item" id="drop-item" href="#">
+								<Link className="dropdown-item" id="drop-item" to="#">
 									Favoritos
 								</Link>
-								<Link className="dropdown-item" id="drop-item" href="#">
+								<Link className="dropdown-item" id="drop-item" to="#">
 									Actividad
 								</Link>
 								<div className="dropdown-divider" />
-								<Link
-									className="dropdown-item"
-									id="drop-item"
-									href="#"
-									onClick={() => actions.Logout()}>
+								<Link className="dropdown-item" id="drop-item" to="#" onClick={() => actions.Logout()}>
 									Cerrar sesión
 								</Link>
 							</div>

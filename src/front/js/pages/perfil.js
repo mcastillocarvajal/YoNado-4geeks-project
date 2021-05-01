@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Button, Form, Row, Col, Nav, Table } from "react-bootstrap";
@@ -10,6 +10,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export const Perfil = () => {
+	//const { store, actions } = useContext(Context);
+
 	var dropy = {
 		$dropys: null,
 		openClass: "open",
@@ -81,6 +83,8 @@ export const Perfil = () => {
 
 	// const [startDate, setStartDate] = useState(new Date());
 	const [selectedDate, setSelectedDate] = useState(null);
+
+	// console.log("===========storea ctivities", store.activities);
 
 	return (
 		<>

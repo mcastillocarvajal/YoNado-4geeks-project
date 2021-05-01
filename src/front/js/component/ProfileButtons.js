@@ -12,9 +12,14 @@ export const ProfileButtons = () => {
 					<div className="circlewoowoo">AA</div>
 				</Col>
 				<Col>
-					<Link to="/favoritos">
+					<Link to="/favorites">
 						<Button variant="light" className="mt-5" id="btn">
-							Favoritos
+							Mis Favoritos
+						</Button>
+					</Link>
+					<Link to="/perfil">
+						<Button variant="light" className="mt-5" id="btn">
+							Mi actividad
 						</Button>
 					</Link>
 				</Col>

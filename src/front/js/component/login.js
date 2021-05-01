@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { LoginFB } from "../component/loginFB";
 import "../../styles/login.scss";
@@ -12,6 +12,10 @@ export const Login = () => {
 
 	const handleLogin = () => {
 		actions.Login(email, password);
+		// if () {
+		// } else {
+		// 	setError(true);
+		// }
 	};
 
 	if (store.token && store.token != "" && store.token != undefined) history.push("/");
@@ -76,6 +80,8 @@ export const Login = () => {
 								<i className="fas fa-sign-in-alt" id="registericon" />
 								&nbsp; Ingresar
 							</button>
+							{/* {store.isLogIn && <Redirect to="/perfil" />} */}
+							<Link to="/perfil">perfil</Link>
 						</div>
 					</div>
 				</div>
