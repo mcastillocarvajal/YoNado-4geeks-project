@@ -1,23 +1,26 @@
 import React from "react";
 import { Cards } from "./card.js";
+import { Navbar } from "../component/navbar";
 import { Container, Row, Col } from "react-bootstrap";
 
 import "../../styles/card.scss";
 
 export const WarmUp = () => {
 	return (
-		<Container className="justify-content-center">
-			<Row>
-				<Col sm={12}>
-					<div id="titleTabs">── Calentamiento ──</div>
-				</Col>
-			</Row>
-			<Row>
-				<Col sm={4}>
-					<Cards
-						video="https://www.youtube.com/embed/60gILvlLp2Q"
-						title="Estocada"
-						text="Comienza en una posición erguida con los brazos a ambos lados. 
+		<>
+			<Navbar />
+			<Container className="justify-content-center">
+				<Row>
+					<Col sm={12}>
+						<div id="titleTabs">── Calentamiento ──</div>
+					</Col>
+				</Row>
+				<Row>
+					<Col sm={4}>
+						<Cards
+							video="https://www.youtube.com/embed/60gILvlLp2Q"
+							title="Estocada"
+							text="Comienza en una posición erguida con los brazos a ambos lados. 
                         Da un paso hacia atrás al mismo tiempo que bajas las caderas de manera que la rodilla de enfrente se flexione a 90 grados y la rodilla de atrás roce con el suelo."
 					/>
 				</Col>
@@ -85,9 +88,10 @@ export const WarmUp = () => {
                     Facilita la ejecución de ciertas técnicas especializadas de nado.
                     Ayuda a controlar la fuerza en los músculos.
                     Favorece la concentración y coordinación de los movimientos al nadar."
-					/>
-				</Col>
-			</Row>
-		</Container>
+						/>
+					</Col>
+				</Row>
+			</Container>
+		</>
 	);
 };

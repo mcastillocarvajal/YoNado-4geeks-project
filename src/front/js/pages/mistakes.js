@@ -1,5 +1,6 @@
 import React from "react";
 import { Cards } from "./card.js";
+import { Navbar } from "../component/navbar";
 import { Container, Row, Col } from "react-bootstrap";
 
 export const Mistakes = () => {
@@ -50,9 +51,9 @@ export const Mistakes = () => {
 						text="-Hacer la brazada y la patada al mismo tiempo.
                         -No dejar tiempo de desliz.
                         -No tomar aire cada vez que la cabeza sale del agua."
-					/>
-				</Col>
-			</Row>
-		</Container>
+						/>
+					</Col>
+				</Row>
+			</Container>
 	);
 };

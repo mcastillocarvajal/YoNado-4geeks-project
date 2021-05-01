@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Login } from "../component/login";
 import { Context } from "../store/appContext";
 import "../../styles/landing.scss";
 import "../../styles/register.scss";
@@ -33,10 +32,6 @@ export const Register = () => {
 							</Link>
 						</button>
 					</h2>
-
-					{/* LOGIN MODAL */}
-
-					<Login />
 				</div>
 			) : (
 				<>
@@ -52,21 +47,21 @@ export const Register = () => {
 							/>
 							<label className="mt-2">Apellido</label>
 							<input
-								id="registerinput"
+								id="registerinput2"
 								className="form-control"
 								placeholder="&#xf2bd; Tu apellido"
 								onChange={e => setLast_name(e.target.value)}
 							/>
 							<label className="mt-2">Correo electrónico</label>
 							<input
-								id="registerinput"
+								id="registerinput4"
 								className="form-control"
 								placeholder="&#xf0e0;  nombre@correo.com"
 								onChange={e => setEmail(e.target.value)}
 							/>
 							<label className="mt-2">Contraseña</label>
 							<input
-								id="registerinput"
+								id="registerinput3"
 								type="password"
 								className="form-control"
 								placeholder="&#xf070; ••••••••"
@@ -80,22 +75,18 @@ export const Register = () => {
 								id="registerbtn"
 								onClick={handleJoinUs}>
 								<i className="fas fa-sign-in-alt" id="registericon" />
-								&nbsp; Registrase
+								&nbsp; Registrarse
 							</button>
 						</div>
-						<small claasName="text-muted" id="small">
+						<small id="small">
 							Ya eres miembro?{" "}
-							<button id="loginbtn" data-toggle="modal" data-target="#loginexampleModal">
-								<Link to="/" id="smalllink">
+							<button id="loginbtn">
+								<Link to="/login" id="smalllink">
 									&nbsp;Ingresa aquí
 								</Link>
 							</button>
 						</small>
 					</div>
-
-					{/* LOGIN MODAL */}
-
-					<Login />
 				</>
 			)}
 		</div>

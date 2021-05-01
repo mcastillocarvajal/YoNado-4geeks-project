@@ -1,5 +1,6 @@
 import React from "react";
 import { Cards } from "./card.js";
+import { Navbar } from "../component/navbar";
 import { Container, Row, Col } from "react-bootstrap";
 
 export const Exercises = () => {

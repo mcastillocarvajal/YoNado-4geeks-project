@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import FacebookLogin from "react-facebook-login";
+import { Context } from "../store/appContext";
 import "../../styles/login.scss";
 
 export const LoginFB = () => {
+	const { store, actions } = useContext(Context);
 	const responseFacebook = response => {
 		console.log(response);
 		console.log(">>>>>>TOKEN", response.accessToken);
 		console.log(">>>>>>NAME", response.name);
 		console.log(">>>>>>EMAIL", response.email);
+		actions.Facebook(response.email, response.name, response.accessToken);
 	};
 
 	return (
@@ -16,14 +19,10 @@ export const LoginFB = () => {
 				appId="879098049313561"
 				autoLoad={false}
 				fields="name,email,picture"
-				// onClick={componentClicked}
+				// onClick={handleFacebook}
 				callback={responseFacebook}
-				textButton=""
-				icon={
-					<button className="btn text-white" id="fbicon">
-						Inicia sesión con Facebook
-					</button>
-				}
+				textButton="&nbsp;Inicia sesión con Facebook"
+				icon={<i className="fab fa-facebook-square" />}
 				cssClass="fblogin"
 			/>
 		</>
