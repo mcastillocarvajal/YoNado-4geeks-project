@@ -9,15 +9,6 @@ import PropType from "prop-types";
 export const Tabla = () => {
 	const { store, actions } = useContext(Context);
 
-	// const [downloadExcelProps, setDownloadExcelProps] = useState({
-	// 	type: "all",
-	// 	title: "test",
-	// 	showLabel: true
-	// });
-	// useEffect(() => {
-	// 	// fetchData(20)
-	// }, []);
-
 	// const data = store.activities.map((item, i) => {
 	// 	let info = {
 	// 		ejercicios: item.exercise,
@@ -26,10 +17,8 @@ export const Tabla = () => {
 	// 		fecha: item.date
 	// 	};
 	// 	return info;
-
-	//console.log("indexxxx", key);
+	// });
 	console.log("==========STORE ACTIVITIES=======", store.activities);
-	// console.log("===============ESTA ES DATA===============", data);
 
 	// return (
 	// 	<ReactFlexyTable
@@ -53,21 +42,27 @@ export const Tabla = () => {
 				<Table striped bordered hover>
 					<thead>
 						<tr>
-							<th>Ejercicios</th>
-							<th>Distancia</th>
-							<th>Tiempo</th>
-							<th>Fecha</th>
+							<th style={{ textAlign: "center" }}>Ejercicios</th>
+							<th style={{ textAlign: "center" }}>Distancia</th>
+							<th style={{ textAlign: "center" }}>Tiempo</th>
+							<th style={{ textAlign: "center" }}> Fecha</th>
 						</tr>
 					</thead>
 					<tbody>
-						{/* {store.activities.map((item, index) => {
-							<tr key={index}>
-								<td>{item.exercise}</td>
-								<td>{item.distance}</td>
-								<td>{item.lapse}</td>
-								<td>{item.date}</td>
-							</tr>;
-						})} */}
+						{store.activities ? (
+							store.activities.map((item, index) => {
+								return (
+									<tr key={index}>
+										<td style={{ textAlign: "center" }}>{item.exercise}</td>
+										<td style={{ textAlign: "center" }}>{item.distance}</td>
+										<td style={{ textAlign: "center" }}>{item.lapse}</td>
+										<td style={{ textAlign: "center" }}>{item.date}</td>
+									</tr>
+								);
+							})
+						) : (
+							<tr>sin actividades</tr>
+						)}
 					</tbody>
 				</Table>
 			</Container>
