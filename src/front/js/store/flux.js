@@ -123,30 +123,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				try {
 					const resp = await fetch(`${process.env.BACKEND_URL}/api/favorite`, opts);
-					if (resp.status != 200) {
-						alert("ADD FAVORITE ERROR");
-					}
 					const data = await resp.json();
-					setStore({ favorites: [...store.favorites, data.favorite] });
+					setStore({ favorites: [...store.favorites, data] });
 					console.log(">>>>ADDFAVORITE", store.favorites);
 				} catch (err) {
 					console.error(">>>ADD FAVORITE ERROR", err);
 				}
 			},
-			deleteFavorite: async id => {
+			deleteFavorite: async (user_id, link) => {
 				const store = getStore();
 				const opts = {
 					method: "DELETE",
 					headers: {
+						"Content-Type": "application/json",
 						Authorization: "Bearer " + store.token
-					}
+					},
+					body: JSON.stringify({
+						user_id: user_id,
+						link: link
+					})
 				};
 				try {
-					const resp = await fetch(`${process.env.BACKEND_URL}/api/favorite/${id}`, opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/delete_favorite`, opts);
 					if (resp.status != 200) {
 						alert("DELETE FAVORITE ERROR");
 					}
-					const filter = store.favorites.filter(item => item.id != id);
+					const filter = store.favorites.filter(item => item.link != link);
 					setStore({ favorites: filter });
 					console.log(">>>>DELETEFAVORITE ", store.favorites);
 				} catch (err) {

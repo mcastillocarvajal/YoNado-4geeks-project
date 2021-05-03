@@ -7,9 +7,7 @@ import "../../styles/card.scss";
 
 export const Cards = props => {
 	const { store, actions } = useContext(Context);
-	const handleDelete = id => {
-		actions.deleteFavorite(id);
-	};
+
 	return (
 		<Card id="card" style={{ width: "23rem" }}>
 			<Card.Header id="header">
@@ -26,12 +24,17 @@ export const Cards = props => {
 					id="btn"
 					variant="primary"
 					onClick={() =>
-						store.favorites.map(fav => fav.link).includes(props.link)
-							? actions.deleteFavorite(handleDelete(props.id))
-							: actions.addFavorite(props.title, props.description, props.link, props.user_id)
+						store.favorites.map(fav => fav.link).includes(props.video)
+							? actions.deleteFavorite(store.user.id, props.video)
+							: actions.addFavorite(props.title, props.text, props.video, store.user.id)
 					}>
-					<i className="fas fa-star " id="star" />
-					FAVORITO
+					<i
+						id="star"
+						className={
+							store.favorites.map(fav => fav.link).includes(props.video) ? "fas fa-star" : "far fa-star"
+						}
+					/>
+					Favorito
 				</Button>
 			</Card.Header>
 			<Card.Body>
