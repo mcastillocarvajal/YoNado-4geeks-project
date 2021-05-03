@@ -24,7 +24,7 @@ export const Register = () => {
 			{store.register ? (
 				<div style={{ height: "50vh" }}>
 					<h2 className="text-center">
-						Tu cuenta ha sido creada exitosamente! Inica sesión
+						Tu cuenta ha sido creada exitosamente! Inicia sesión
 						<Link to="/login" id="smalllink">
 							&nbsp;aquí
 						</Link>
