@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Login } from "../component/login";
 import "../../styles/landing.scss";
 
 export const Landing = () => {
@@ -17,16 +16,12 @@ export const Landing = () => {
 					id="loginbtn"
 					data-toggle="modal"
 					data-target="#loginexampleModal">
-					<Link id="login" to="/">
+					<Link id="login" to="/login">
 						<i className="far fa-user-circle" />
 						&nbsp; Iniciar sesión
 					</Link>
 				</button>
 			</div>
-
-			{/* LOGIN MODAL */}
-
-			<Login />
 
 			{/* JUMBOTRON */}
 

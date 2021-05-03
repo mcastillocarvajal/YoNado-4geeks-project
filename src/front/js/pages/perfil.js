@@ -8,95 +8,32 @@ import { profileButtons, ProfileButtons } from "../component/ProfileButtons";
 import { Navbar } from "../component/navbar";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 
 export const Perfil = () => {
 	const { store, actions } = useContext(Context);
 
-	// var dropy = {
-	// 	$dropys: null,
-	// 	openClass: "open",
-	// 	selectClass: "selected",
-	// 	init: function() {
-	// 		var self = this;
-
-	// 		self.$dropys = $(".dropy");
-	// 		self.eventHandler();
-	// 	},
-	// 	eventHandler: function() {
-	// 		var self = this;
-
-	// 		// Opening a dropy
-	// 		self.$dropys.find(".dropy__title").click(function() {
-	// 			self.$dropys.removeClass(self.openClass);
-	// 			$(this)
-	// 				.parents(".dropy")
-	// 				.addClass(self.openClass);
-	// 		});
-
-	// 		// Click on a dropy list
-	// 		self.$dropys.find(".dropy__content ul li a").click(function() {
-	// 			var $that = $(this);
-	// 			var $dropy = $that.parents(".dropy");
-	// 			var $input = $dropy.find("input");
-	// 			var $title = $(this)
-	// 				.parents(".dropy")
-	// 				.find(".dropy__title span");
-
-	// 			// Remove selected className
-	// 			$dropy.find(".dropy__content a").each(function() {
-	// 				$(this).removeClass(self.selectClass);
-	// 			});
-
-	// 			// Update selected value
-	// 			$title.html($that.html());
-	// 			$input.val($that.attr("data-value")).trigger("change");
-
-	// 			// If back to default, remove selected className else addclass on right element
-	// 			if ($that.hasClass("dropy__header")) {
-	// 				$title.removeClass(self.selectClass);
-	// 				$title.html($title.attr("data-title"));
-	// 			} else {
-	// 				$title.addClass(self.selectClass);
-	// 				$that.addClass(self.selectClass);
-	// 			}
-
-	// 			// Close dropdown
-	// 			$dropy.removeClass(self.openClass);
-	// 		});
-
-	// 		// Close all dropdown onclick on another element
-	// 		$(document).bind("click", function(e) {
-	// 			if (
-	// 				!$(e.target)
-	// 					.parents()
-	// 					.hasClass("dropy")
-	// 			) {
-	// 				self.$dropys.removeClass(self.openClass);
-	// 			}
-	// 		});
-	// 	}
-	// };
-
-	// $(function() {
-	// 	dropy.init();
-	// });
-
-	// const [startDate, setStartDate] = useState(new Date());
-	const [selectedDate, setSelectedDate] = useState(null);
+	const [date, setDate] = useState(null);
 	const [exercise, setExercise] = useState("");
 	const [distance, setDistance] = useState(0);
 	const [lapse, setLapse] = useState("");
 
-	const handleInfo = () => {
-		actions.addActivity(exercise, distance, date, lapse);
+	const fecha = moment(date).format("YYYY-MM-DD");
+
+	const handleInfo = e => {
+		e.preventDefault;
+		actions.addActivity(exercise, distance, fecha, lapse, store.user.id);
 	};
 	console.log(">>>>>>>info", handleInfo);
 	console.log(">>>>>>>exercise", exercise);
 	console.log(">>>>>>>distance", distance);
 	console.log(">>>>>>>lapse", lapse);
-	console.log(">>>>>>>date", selectedDate);
+	console.log(">>>>>>>date", fecha);
+	console.log(">>>>>>>storeactivities", store.activities);
 
-	const ejercicios = ["Estilo mariposa", "Estilo Libre", "Estilo dorso", "Estilo pecho"];
+	// const forceUpdateHandler = () => {
+	// 	this.forceUpdate();
+	// };
 
 	return (
 		<>
@@ -113,35 +50,19 @@ export const Perfil = () => {
 						<article className="mr-5 html">
 							<dl className="dropy">
 								<h5>Ejercicio</h5>
-								{/* <dt className="dropy__title">
-									<span>Seleccionar...</span>
-								</dt>
-								<dd
-									className="dropy__content"
-									onClick={e => setExercise(e.currentTarget.value)}
-									value={exercise}>
-									<ul>
-										<li>
-											<a>Estilo mariposa</a>
-										</li>
-										{ejercicios.map((item, i) => {
-											return (
-												<li key={i}>
-													<a>{item}</a>
-												</li>
-											);
-										})}
-									</ul>
-								</dd> */}
-								<DropdownButton
-									id="dropdown-basic-button"
-									variant="light"
-									title="seleccionar..."
-									type="string">
-									<Dropdown.Item value={exercise} onClick={e => setExercise(e.currentTarget.value)}>
-										mariposa
-									</Dropdown.Item>
-								</DropdownButton>
+								<Form.Group controlId="exampleForm.SelectCustom">
+									<Form.Control
+										size="sm"
+										as="select"
+										value={exercise}
+										custom
+										onChange={e => setExercise(e.target.value)}>
+										<option>Estilo mariposa</option>
+										<option>Estilo dorso</option>
+										<option>Estilo libre</option>
+										<option>Estilo pecho</option>
+									</Form.Control>
+								</Form.Group>
 							</dl>
 						</article>
 						<article className="ml-5">
@@ -187,10 +108,9 @@ export const Perfil = () => {
 								<dt className="dropy__calendar">
 									<span>
 										<DatePicker
-											className="form-control"
-											selected={selectedDate}
-											onChange={date => setSelectedDate(date)}
-											dateFormat="dd/MM/yyyy"
+											selected={date}
+											onChange={e => setDate(e)}
+											dateFormat="yyyy/MM/dd"
 											placeHolderText="Seleccione fecha"
 											maxDate={new Date()}
 										/>

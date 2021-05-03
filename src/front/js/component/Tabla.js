@@ -7,35 +7,8 @@ import { Table, Container } from "react-bootstrap";
 import PropType from "prop-types";
 
 export const Tabla = () => {
-	const { store, actions } = useContext(Context);
-
-	// const data = store.activities.map((item, i) => {
-	// 	let info = {
-	// 		ejercicios: item.exercise,
-	// 		distancia: item.distance,
-	// 		tiempo: item.lapse,
-	// 		fecha: item.date
-	// 	};
-	// 	return info;
-	// });
-	console.log("==========STORE ACTIVITIES=======", store.activities);
-
-	// return (
-	// 	<ReactFlexyTable
-	// 		data={data}
-	// 		className="my-table"
-	// 		filterable
-	// 		nonFilterCols={["ejercicios", "distancia", "tiempo"]}
-	// 		previousText="anterior"
-	// 		nextText="siguiente"
-	// 		rowsText="filas"
-	// 		pageText="página"
-	// 		totalDataText="total de entradas"
-	// 		filteredDataText="en esta página"
-	// 		ofText="de"
-	// 	/>
-	// );
-
+    const { store, actions } = useContext(Context);
+    
 	return (
 		<>
 			<Container fluid="lg">
@@ -61,7 +34,7 @@ export const Tabla = () => {
 								);
 							})
 						) : (
-							<tr>sin actividades</tr>
+							<h1 style={{ margin: "auto" }}>¡sin actividades!</h1>
 						)}
 					</tbody>
 				</Table>
