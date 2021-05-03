@@ -5,30 +5,21 @@
     background-size: cover;
     background-attachment: fixed; 
     background-color: #043953;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 #logo {
     font-family: 'Jura', sans-serif;
     color: white;
-    font-size: 200%;
+    font-size: 180%;
     letter-spacing: 5px;
 }
 #logo:hover {
     color: #d9d9d9
 }
-#jumbotron{ 
-    background: rgba(255,255,255,0);
-    width: 45rem;
-}
-@media (max-width: 450px) {
-    #jumbotronh{ 
-    font-size: 210%;
-    width: 25rem;
-}
-}
 #lead{
     color: #3CD0FF;
+    font-family: 'Jura', sans-serif;
 }
 #small{
     display: flex;

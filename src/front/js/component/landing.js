@@ -7,12 +7,12 @@ export const Landing = () => {
 		<div className="landing">
 			{/* NAV */}
 
-			<div className="d-flex flex-row">
-				<Link className="navbar-brand mt-2 ml-4" id="logo" to="/">
+			<div className="d-flex flex-row mb-5">
+				<Link className="navbar-brand mt-2 mb-5 ml-5" id="logo" to="/">
 					YO NADO
 				</Link>
 				<button
-					className="navbar-brand mt-2 ml-auto mr-5"
+					className="navbar-brand mt-2 mb-5 ml-auto mr-5"
 					id="loginbtn"
 					data-toggle="modal"
 					data-target="#loginexampleModal">
@@ -23,20 +23,19 @@ export const Landing = () => {
 				</button>
 			</div>
 
-			{/* JUMBOTRON */}
-
-			<div className="jumbotron text-white ml-3" id="jumbotron">
-				<p className="lead" id="lead">
-					── Guía para nadadores
-				</p>
-				<h2 className="display-3 font-weight-normal " id="jumbotronh">
-					¿Estás listo?
-				</h2>
-				<h1 className="display-4 font-weight-normal " id="jumbotronh">
-					Esta es la guía para nadadores principiantes
-				</h1>
+			<div className="container-fluid mt-5">
+				<div className="row mt-5">
+					<div className="col-12 col-md-6 mb-5">
+						<p className="ml-5 mt-3" id="lead">
+							── Guía para nadadores
+						</p>
+						<h1 className="display-4 font-weight-normal ml-5 text-white">¿Estás listo?</h1>
+						<h2 className="display-4 font-weight-normalt ml-5 text-white">Esta es la guía para</h2>
+						<h2 className="display-4 font-weight-normalt ml-5 mb-5 text-white">nadadores principiantes.</h2>
+					</div>
+				</div>
 			</div>
-			<small className="text-white mt-5 mb-2" id="small">
+			<small className="text-white mt-5 mb-5" id="small">
 				Desliza hacia abajo para registrarte &nbsp; <i className="fas fa-arrow-down" />
 			</small>
 		</div>

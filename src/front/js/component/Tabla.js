@@ -7,8 +7,8 @@ import { Table, Container } from "react-bootstrap";
 import PropType from "prop-types";
 
 export const Tabla = () => {
-    const { store, actions } = useContext(Context);
-    
+	const { store, actions } = useContext(Context);
+
 	return (
 		<>
 			<Container fluid="lg">

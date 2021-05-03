@@ -202,7 +202,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (err) {
 					console.error(">>>DELETE ACTIVITY ERROR", err);
 				}
-            },
+			},
 
 			// >>>>>>> RESET PASSWORD
 

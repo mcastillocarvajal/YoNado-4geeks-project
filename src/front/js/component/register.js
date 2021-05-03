@@ -18,9 +18,7 @@ export const Register = () => {
 
 	return (
 		<div className="d-flex flex-column mx-auto mt-4 mb-5">
-			<h6 className="text-dark text-center display-4 my-5" id="register">
-				Bienvenido a Yo Nado!
-			</h6>
+			<h2 className="display-4 font-weight-normal text-center my-5">Bienvenido a Yo Nado!</h2>
 			{store.register ? (
 				<div style={{ height: "50vh" }}>
 					<h2 className="text-center">

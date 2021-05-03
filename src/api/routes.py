@@ -32,7 +32,7 @@ def handle_resetpassword():
         to_emails=email,
         subject='Restablecer contraseña',
         html_content=
-        f'<h3>Hola {user.name},<h3><br></br><p>Recibimos tu solicitud para restablecer tu acceso en Yo Nado.</p><br></br><p>Accede a este link para cambiar tu contraseña: https://3000-azure-lemur-06vwg086.ws-us04.gitpod.io//resetpassword/DyhsHSAI46sdal</p>')
+        f'<h3>Hola {user.name},<h3><br></br><p>Recibimos tu solicitud para restablecer tu acceso en Yo Nado.</p><br></br><p>Accede a este link para cambiar tu contraseña: {link}/resetpassword/DyhsHSAI46sdal</p>')
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
