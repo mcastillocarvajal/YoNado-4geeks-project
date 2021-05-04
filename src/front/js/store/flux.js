@@ -158,7 +158,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			// >>>>>>> ADD/DELETE ACTIVITIES
 
-			addActivity: async (exercise, distance, date, lapse, user_id) => {
+			addActivity: async (exercise, distance, date, lapse, user_id, deleteNumber) => {
 				const store = getStore();
 				const opts = {
 					method: "POST",
@@ -171,7 +171,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						distance: distance,
 						date: date,
 						lapse: lapse,
-						user_id: user_id
+						user_id: user_id,
+						deleteNumber: deleteNumber
 					})
 				};
 				try {
@@ -183,20 +184,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error(">>>ADD ACTIVITY ERROR", err);
 				}
 			},
-			deleteActivity: async id => {
+			deleteActivity: async deleteNumber => {
 				const store = getStore();
 				const opts = {
 					method: "DELETE",
 					headers: {
 						Authorization: "Bearer " + store.token
-					}
+					},
+					body: JSON.stringify({
+						deleteNumber: deleteNumber
+					})
 				};
 				try {
-					const resp = await fetch(`${process.env.BACKEND_URL}/api/activity/` + `${id}`, opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/delete_activity`, opts);
 					if (resp.status != 200) {
 						alert("DELETE ACTIVITY ERROR");
 					}
-					const filter = store.activities.filter(item => item.id != id);
+					const filter = store.activities.filter(item => item.deleteNumber != deleteNumber);
 					setStore({ activities: filter });
 					console.log(">>>>DELETEACTIVITY ", store.activities);
 				} catch (err) {

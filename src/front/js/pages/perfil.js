@@ -22,25 +22,9 @@ export const Perfil = () => {
 
 	const handleInfo = e => {
 		e.preventDefault;
-		actions.addActivity(exercise, distance, fecha, lapse, store.user.id);
-	};
-
-	console.log(">>>>>>>storeactivities", store.activities);
-
-	useEffect(() => {
-		getUpdate();
-	}, []);
-
-	const getDelete = async id => {
-		const response = await fetch(`${process.env.BACKEND_URL}/api/activity/${id}`);
-		const data = await response.json();
-		console.log(">>>>>>Delete DATA", data);
-	};
-
-	const getUpdate = async () => {
-		const response = await fetch(`${process.env.BACKEND_URL}/api/activity`);
-		const data = await response.json();
-		console.log(">>>>>>UPDATED DATA", data);
+		let now = new Date();
+		let deleteNumber = now.getTime();
+		actions.addActivity(exercise, distance, fecha, lapse, store.user.id, deleteNumber);
 	};
 
 	return (
@@ -168,7 +152,7 @@ export const Perfil = () => {
 													{moment(item.date).format("YYYY-MM-DD")}{" "}
 													<i
 														className="fas fa-trash-alt btn btn-outline-danger ml-5"
-														onClick={() => actions.deleteActivity(item.id)}
+														onClick={() => actions.deleteActivity(item.deleteNumber)}
 													/>
 												</td>
 											</tr>

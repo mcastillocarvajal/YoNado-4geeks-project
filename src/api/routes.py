@@ -26,6 +26,12 @@ def handle_resetpassword():
 
     access_token = create_access_token(identity=email)
     link = os.environ.get('BACKEND_URL')
+    position = 11
+    new_character = '0'
+
+    temp = list(link)
+    temp[position] = new_character
+    link = "".join(temp)
 
     message = Mail(
         from_email='yonado4geeks@gmail.com',
@@ -132,26 +138,18 @@ def delete_favorite():
 def create_activity():
 
     body = request.get_json()
-    new_activity = Activity(exercise=body["exercise"], distance=body["distance"], date=body["date"], lapse=body["lapse"], user_id=body["user_id"])
+    new_activity = Activity(exercise=body["exercise"], distance=body["distance"], date=body["date"], lapse=body["lapse"], user_id=body["user_id"], deleteNumber=body["deleteNumber"])
     db.session.add(new_activity)
     db.session.commit()
     return jsonify(body), 200
 
-@api.route('/activity', methods=['GET'])
-#@jwt_required()
-def get_activity():
-    activities = Activity.query.all()
-    all_activities = list(map(lambda x: x.serialize(), activities))
-    return jsonify(all_activities), 200
+@api.route('/delete_activity', methods=['DELETE'])
+@jwt_required()
+def delete_activity():
 
-@api.route('/activity/<int:id>', methods=['DELETE'])
-#@jwt_required()
-def delete_activity(id):
-
-    activity = Activity.query.get(id)
-    if activity is None:
-        raise APIException('Activity not found', status_code=404)
-    db.session.delete(activity)
+    body = request.get_json()
+    delete_activity = Activity.query.filter_by(deleteNumber=body["deleteNumber"]).first()
+    db.session.delete(delete_activity)
     db.session.commit()
     response = { "msg" : "Activity deleted successfully" }
     return jsonify(response), 200

@@ -50,6 +50,7 @@ class Activity(db.Model):
     distance= db.Column(db.Integer, nullable=False)
     date= db.Column(db.Date, nullable=False)
     lapse= db.Column(db.String, nullable=False)
+    deleteNumber= db.Column(db.String, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
     def __repr__(self):
@@ -63,4 +64,5 @@ class Activity(db.Model):
             "distance": self.distance,
             "date": self.date,
             "lapse": self.lapse,
+            "deleteNumber": self.deleteNumber,
         }
