@@ -37,7 +37,7 @@ export const NewPassword = () => {
 						<h3 className="text-center">Tu contraseña ha sido actualizada exitosamente!</h3>
 						<h3 className="text-center">
 							Ahora puedes iniciar sesión&nbsp;
-							<Link to="/">aquí.</Link>
+							<Link to="/login">aquí.</Link>
 						</h3>
 					</div>
 				) : (

@@ -189,6 +189,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const opts = {
 					method: "DELETE",
 					headers: {
+						"Content-Type": "application/json",
 						Authorization: "Bearer " + store.token
 					},
 					body: JSON.stringify({

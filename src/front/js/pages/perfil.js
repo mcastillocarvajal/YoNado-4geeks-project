@@ -23,7 +23,7 @@ export const Perfil = () => {
 	const handleInfo = e => {
 		e.preventDefault;
 		let now = new Date();
-		let deleteNumber = now.getTime();
+		let deleteNumber = String(now.getTime());
 		actions.addActivity(exercise, distance, fecha, lapse, store.user.id, deleteNumber);
 	};
 
