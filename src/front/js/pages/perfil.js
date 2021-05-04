@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { Button, Form, Row, Col, DropdownButton, Dropdown } from "react-bootstrap";
+import { Button, Form, Row, Col, Table, Container } from "react-bootstrap";
 import "../../styles/perfil.module.scss";
-import { Tabla } from "../component/Tabla";
+//import { Tabla } from "../component/Tabla";
 import { profileButtons, ProfileButtons } from "../component/ProfileButtons";
 import { Navbar } from "../component/navbar";
 import DatePicker from "react-datepicker";
@@ -24,6 +24,7 @@ export const Perfil = () => {
 		e.preventDefault;
 		actions.addActivity(exercise, distance, fecha, lapse, store.user.id);
 	};
+
 	console.log(">>>>>>>info", handleInfo);
 	console.log(">>>>>>>exercise", exercise);
 	console.log(">>>>>>>distance", distance);
@@ -31,9 +32,21 @@ export const Perfil = () => {
 	console.log(">>>>>>>date", fecha);
 	console.log(">>>>>>>storeactivities", store.activities);
 
-	// const forceUpdateHandler = () => {
-	// 	this.forceUpdate();
-	// };
+	useEffect(() => {
+		getUpdate();
+	}, []);
+
+	const getDelete = async id => {
+		const response = await fetch(`${process.env.BACKEND_URL}/api/activity/${id}`);
+		const data = await response.json();
+		console.log(">>>>>>Delete DATA", data);
+	};
+
+	const getUpdate = async () => {
+		const response = await fetch(`${process.env.BACKEND_URL}/api/activity`);
+		const data = await response.json();
+		console.log(">>>>>>UPDATED DATA", data);
+	};
 
 	return (
 		<>
@@ -47,10 +60,10 @@ export const Perfil = () => {
 			<Form>
 				<Row>
 					<main className="day d-flex justify-content-center">
-						<article className="mr-5 html">
+						<article className="mr-5">
 							<dl className="dropy">
 								<h5>Ejercicio</h5>
-								<Form.Group controlId="exampleForm.SelectCustom">
+								<Form.Group size="sm" className="mt-3" controlId="exampleForm.SelectCustom">
 									<Form.Control
 										size="sm"
 										as="select"
@@ -71,6 +84,7 @@ export const Perfil = () => {
 								<dt>
 									<span>
 										<Form.Group
+											size="sm"
 											controlId="formBasicEmail"
 											type="integer"
 											onChange={e => setDistance(e.target.value)}
@@ -87,11 +101,13 @@ export const Perfil = () => {
 				<Row>
 					<main className="day d-flex justify-content-center">
 						<article className="mr-5">
-							<dl className="dropy">
+							<dl>
 								<h5>Tiempo (min)</h5>
 								<dt>
 									<span>
 										<Form.Group
+											className="border-black"
+											size="sm"
 											onChange={e => setLapse(e.target.value)}
 											value={lapse}
 											type="string">
@@ -105,24 +121,24 @@ export const Perfil = () => {
 						<article className="ml-5">
 							<dl className="dropy">
 								<h5>Fecha</h5>
-								<dt className="dropy__calendar">
-									<span>
-										<DatePicker
-											selected={date}
-											onChange={e => setDate(e)}
-											dateFormat="yyyy/MM/dd"
-											placeHolderText="Seleccione fecha"
-											maxDate={new Date()}
-										/>
-									</span>
-								</dt>
+
+								<span className="dropy__calendar">
+									<DatePicker
+										className="mt-2 border border-grey"
+										selected={date}
+										onChange={e => setDate(e)}
+										dateFormat="yyyy/MM/dd"
+										placeholderText="Seleccione fecha..."
+										maxDate={new Date()}
+									/>
+								</span>
 							</dl>
 						</article>
 					</main>
 				</Row>
 				<Row className="mb-5   mt-5">
 					<Col className="d-flex justify-content-center">
-						<Button id="btn" variant="primary" type="submit" onClick={handleInfo}>
+						<Button id="btn" variant="primary" onClick={handleInfo}>
 							Agregar
 						</Button>
 					</Col>
@@ -134,7 +150,40 @@ export const Perfil = () => {
 			</div>
 
 			<Row className="justify-content-center mt-4 mb-4">
-				<Tabla />
+				{/* <Tabla /> */}
+				<Container fluid="lg">
+					<Table striped bordered hover>
+						<thead>
+							<tr>
+								<th style={{ textAlign: "center" }}>Ejercicios</th>
+								<th style={{ textAlign: "center" }}>Distancia (m)</th>
+								<th style={{ textAlign: "center" }}>Tiempo (min)</th>
+								<th style={{ textAlign: "center" }}> Fecha</th>
+							</tr>
+						</thead>
+						<tbody>
+							{store.activities
+								? store.activities.map((item, index) => {
+										return (
+											<tr key={index}>
+												<td style={{ textAlign: "center" }}>{item.exercise}</td>
+												<td style={{ textAlign: "center" }}>{item.distance}</td>
+												<td style={{ textAlign: "center" }}>{item.lapse}</td>
+												<td style={{ textAlign: "center" }}>
+													{item.date}{" "}
+													<button
+														className="btn btn-outline-danger"
+														onClick={() => actions.deleteActivity(item.id)}>
+														<i className="fas fa-trash-alt" />
+													</button>
+												</td>
+											</tr>
+										);
+								  })
+								: null}
+						</tbody>
+					</Table>
+				</Container>
 			</Row>
 		</>
 	);
