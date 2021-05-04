@@ -137,8 +137,15 @@ def create_activity():
     db.session.commit()
     return jsonify(body), 200
 
+@api.route('/activity', methods=['GET'])
+#@jwt_required()
+def get_activity():
+    activities = Activity.query.all()
+    all_activities = list(map(lambda x: x.serialize(), activities))
+    return jsonify(all_activities), 200
+
 @api.route('/activity/<int:id>', methods=['DELETE'])
-@jwt_required()
+#@jwt_required()
 def delete_activity(id):
 
     activity = Activity.query.get(id)
@@ -148,3 +155,5 @@ def delete_activity(id):
     db.session.commit()
     response = { "msg" : "Activity deleted successfully" }
     return jsonify(response), 200
+
+

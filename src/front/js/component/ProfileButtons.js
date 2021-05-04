@@ -21,21 +21,7 @@ export const ProfileButtons = () => {
 	return (
 		<>
 			<Row className="mx-auto mt-5">
-				<Col style={{ marginRight: "5rem" }}>
-					<div className="circlewoowoo"> {getInitials(`${store.user.name} ${store.user.last_name}`)}</div>
-				</Col>
-				<Col>
-					<Link to="/favorites">
-						<Button variant="light" className="mt-5" id="btn">
-							Mis Favoritos
-						</Button>
-					</Link>
-					<Link to="/perfil">
-						<Button variant="light" className="mt-5" id="btn">
-							Mi actividad
-						</Button>
-					</Link>
-				</Col>
+				<div className="circlewoowoo"> {getInitials(`${store.user.name} ${store.user.last_name}`)}</div>
 			</Row>
 		</>
 	);

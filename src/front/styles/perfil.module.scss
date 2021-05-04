@@ -132,21 +132,21 @@ main.night article{
 .dropy__calendar{
   position: relative;
 //   display: block;
-  width: 130%;
+  width: 50%;
 //   border-bottom: 0.5px solid $blackAlpha;
   text-decoration: none;
-  font-size: 1.5rem;
-  color: $black;
+  font-size: 1.3rem;
+  //color: $black;
   cursor: pointer;
   
   span{
-    display: block;
-    padding: 0.5rem ;
+    //display: block;
+    padding: 8rem ;
     
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-size: 62.5%;
+    font-size: 30%;
   }
 
 }
