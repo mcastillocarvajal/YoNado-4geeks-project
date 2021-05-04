@@ -59,10 +59,10 @@ export const Navbar = () => {
 							</Link>
 							<div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 								<Link className="dropdown-item" id="drop-item" to="/favorites">
-									Favoritos
+									Mis favoritos
 								</Link>
 								<Link className="dropdown-item" id="drop-item" to="/perfil">
-									Actividad
+									Mi actividad
 								</Link>
 								<div className="dropdown-divider" />
 								<Link className="dropdown-item" id="drop-item" to="/" onClick={() => actions.Logout()}>

@@ -25,11 +25,6 @@ export const Perfil = () => {
 		actions.addActivity(exercise, distance, fecha, lapse, store.user.id);
 	};
 
-	console.log(">>>>>>>info", handleInfo);
-	console.log(">>>>>>>exercise", exercise);
-	console.log(">>>>>>>distance", distance);
-	console.log(">>>>>>>lapse", lapse);
-	console.log(">>>>>>>date", fecha);
 	console.log(">>>>>>>storeactivities", store.activities);
 
 	useEffect(() => {
@@ -102,7 +97,7 @@ export const Perfil = () => {
 					<main className="day d-flex justify-content-center">
 						<article className="mr-5">
 							<dl>
-								<h5>Tiempo (min)</h5>
+								<h5>Tiempo (min.s)</h5>
 								<dt>
 									<span>
 										<Form.Group
@@ -157,7 +152,7 @@ export const Perfil = () => {
 							<tr>
 								<th style={{ textAlign: "center" }}>Ejercicios</th>
 								<th style={{ textAlign: "center" }}>Distancia (m)</th>
-								<th style={{ textAlign: "center" }}>Tiempo (min)</th>
+								<th style={{ textAlign: "center" }}>Tiempo (min.s)</th>
 								<th style={{ textAlign: "center" }}> Fecha</th>
 							</tr>
 						</thead>
@@ -170,12 +165,11 @@ export const Perfil = () => {
 												<td style={{ textAlign: "center" }}>{item.distance}</td>
 												<td style={{ textAlign: "center" }}>{item.lapse}</td>
 												<td style={{ textAlign: "center" }}>
-													{item.date}{" "}
-													<button
-														className="btn btn-outline-danger"
-														onClick={() => actions.deleteActivity(item.id)}>
-														<i className="fas fa-trash-alt" />
-													</button>
+													{moment(item.date).format("YYYY-MM-DD")}{" "}
+													<i
+														className="fas fa-trash-alt btn btn-outline-danger ml-5"
+														onClick={() => actions.deleteActivity(item.id)}
+													/>
 												</td>
 											</tr>
 										);

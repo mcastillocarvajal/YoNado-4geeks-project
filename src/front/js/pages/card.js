@@ -23,6 +23,11 @@ export const Cards = props => {
 				<Button
 					id="btn"
 					variant="primary"
+					style={{
+						backgroundColor: store.favorites.map(fav => fav.link).includes(props.video)
+							? "#3CD0FF"
+							: "#13718E"
+					}}
 					onClick={() =>
 						store.favorites.map(fav => fav.link).includes(props.video)
 							? actions.deleteFavorite(store.user.id, props.video)
@@ -31,7 +36,9 @@ export const Cards = props => {
 					<i
 						id="star"
 						className={
-							store.favorites.map(fav => fav.link).includes(props.video) ? "fas fa-star" : "far fa-star"
+							store.favorites.map(fav => fav.link).includes(props.video)
+								? "fas fa-star mr-1"
+								: "far fa-star mr-1"
 						}
 					/>
 					Favorito
@@ -39,7 +46,7 @@ export const Cards = props => {
 			</Card.Header>
 			<Card.Body>
 				<Card.Title id="title" data-toggle="modal" data-target={"#" + props.title}>
-					─────
+					────&nbsp;
 					{props.title}
 				</Card.Title>
 				<Card.Text id="text">{props.text}</Card.Text>
@@ -87,7 +94,7 @@ export const Cards = props => {
 						<div className="footer">
 							<div>
 								<h3>
-									─────
+									────&nbsp;
 									{props.title}
 								</h3>
 							</div>

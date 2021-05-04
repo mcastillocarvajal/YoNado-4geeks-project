@@ -10,8 +10,8 @@
     border: none;
 }
 #btn{
-    background: #13718E;
     border-radius: 19.5px;
+    font-family: 'Jura', sans-serif;
     float: right; 
     border: none;
     width: 157px;
@@ -30,21 +30,18 @@
 
 #title{
     border: none;
-    font-style: normal;
     font-weight: bold;
-    font-size: 18px;
-    line-height: 23px;
-    //letter-spacing: 6px;
+    font-family: 'Jura', sans-serif;
+    font-size: 22px;
     text-transform: uppercase;
     color: #3CD0FF;
      cursor: pointer;
 }
 
 #text{
-    font-style: normal;
-    font-weight: normal;
+    font-weight: 100;
     font-size: 18px;
-    line-height: 32px;
+    line-height: 30px;
     color: #043953;
     float: right; 
     margin-left: 65px;
@@ -118,7 +115,6 @@
     justify-content: left;
     align-content: flex-start;
     color: white;
-    font-family: 'Jura', sans-serif;
     font-size: 12px;
     padding-left: 90px;
 }

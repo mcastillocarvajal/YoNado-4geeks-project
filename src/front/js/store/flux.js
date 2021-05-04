@@ -192,7 +192,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				};
 				try {
-					const resp = await fetch(`${process.env.BACKEND_URL}/api/activity/${id}`, opts);
+					const resp = await fetch(`${process.env.BACKEND_URL}/api/activity/` + `${id}`, opts);
 					if (resp.status != 200) {
 						alert("DELETE ACTIVITY ERROR");
 					}
