@@ -1,0 +1,101 @@
+#favcard{
+    font-family: 'Raleway', sans-serif;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 0%;
+    border: none;
+}
+#favbtn{
+    border-radius: 19.5px;
+    font-family: 'Jura', sans-serif;
+    border: none;
+    width: 157px;
+    height: 39px;
+}
+
+#favstar{
+    width: 26px;
+    height: 26px;
+}
+
+#favtitle{
+    border: none;
+    font-weight: bold;
+    font-family: 'Jura', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #3CD0FF;
+}
+#favtext{
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 30px;
+    color: #043953;
+}
+
+
+//Inicio Estilos Modal - Alonso
+.modal-body{
+    background: rgba(1, 16, 23, 0.94);
+}
+
+#ColAlonso {
+    
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    position: relative; 
+} 
+
+.col iframe{
+    
+    height: 100%;
+    left: 0;
+    position: absolute; 
+    top: 0;
+    width: 100%;
+} 
+
+.modal-content {
+    background: rgba(1, 16, 23, 0.94);
+    
+}
+#cardclosealonso{
+    
+    color: white;
+    font-size: 50px;
+    
+    margin-left: 700px;
+   
+} 
+
+.footer{
+    background: rgba(1, 16, 23, 0.94);
+}
+
+.footer h3 {
+    display: flex;
+    justify-content: left;
+    align-content: flex-start;
+    color: #04C3FF;
+    font-family: 'Jura', sans-serif;
+    font-size: 18px;
+    padding-left: 30px;
+    
+}
+
+.footer p {
+     display: flex;
+    justify-content: left;
+    align-content: flex-start;
+    color: white;
+    font-size: 12px;
+    padding-left: 90px;
+}
+
+.cerrar{
+    padding-right: 20px;
+}
+
+//Fin de los estilos del Modal - Alonso

@@ -130,38 +130,49 @@ export const Perfil = () => {
 
 			<Row className="justify-content-center mt-4 mb-4">
 				{/* <Tabla /> */}
-				<Container fluid="lg">
-					<Table striped bordered hover>
-						<thead>
-							<tr>
-								<th style={{ textAlign: "center" }}>Ejercicios</th>
-								<th style={{ textAlign: "center" }}>Distancia (m)</th>
-								<th style={{ textAlign: "center" }}>Tiempo (min.s)</th>
-								<th style={{ textAlign: "center" }}> Fecha</th>
-							</tr>
-						</thead>
-						<tbody>
-							{store.activities
-								? store.activities.map((item, index) => {
-										return (
-											<tr key={index}>
-												<td style={{ textAlign: "center" }}>{item.exercise}</td>
-												<td style={{ textAlign: "center" }}>{item.distance}</td>
-												<td style={{ textAlign: "center" }}>{item.lapse}</td>
-												<td style={{ textAlign: "center" }}>
-													{moment(item.date).format("YYYY-MM-DD")}{" "}
-													<i
-														className="fas fa-trash-alt btn btn-outline-danger ml-5"
-														onClick={() => actions.deleteActivity(item.deleteNumber)}
-													/>
-												</td>
-											</tr>
-										);
-								  })
-								: null}
-						</tbody>
-					</Table>
-				</Container>
+				{store.activities.length == 0 ? (
+					<div className="mt-5" style={{ height: "50vh" }}>
+						<i
+							className="fas fa-swimmer text-muted d-flex justify-content-center"
+							style={{ fontSize: "100px" }}
+						/>
+						<h3 className="text-center text-muted">No hay actividades</h3>
+						<h3 className="text-center text-muted">agregadas</h3>
+					</div>
+				) : (
+					<Container fluid="lg">
+						<Table striped bordered hover>
+							<thead>
+								<tr>
+									<th style={{ textAlign: "center" }}>Ejercicios</th>
+									<th style={{ textAlign: "center" }}>Distancia (m)</th>
+									<th style={{ textAlign: "center" }}>Tiempo (min.s)</th>
+									<th style={{ textAlign: "center" }}> Fecha</th>
+								</tr>
+							</thead>
+							<tbody>
+								{store.activities
+									? store.activities.map((item, index) => {
+											return (
+												<tr key={index}>
+													<td style={{ textAlign: "center" }}>{item.exercise}</td>
+													<td style={{ textAlign: "center" }}>{item.distance}</td>
+													<td style={{ textAlign: "center" }}>{item.lapse}</td>
+													<td style={{ textAlign: "center" }}>
+														{moment(item.date).format("YYYY-MM-DD")}{" "}
+														<i
+															className="fas fa-trash-alt btn btn-outline-danger ml-5"
+															onClick={() => actions.deleteActivity(item.deleteNumber)}
+														/>
+													</td>
+												</tr>
+											);
+									  })
+									: null}
+							</tbody>
+						</Table>
+					</Container>
+				)}
 			</Row>
 		</>
 	);
