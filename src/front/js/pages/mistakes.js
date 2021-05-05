@@ -19,28 +19,28 @@ export const Mistakes = () => {
 						<Cards
 							video="https://www.youtube.com/embed/C7oERWpfbXE"
 							title="Estilo-mariposa"
-							text="-Sacar todo el pecho del agua al momento de respirar provoca resistencia y el ejercicio se vuelve más demandante
-                        -La descoordinación entre la brazada y la patada hace el ejercicio menos efectivo
-                        -Sumergir la cabeza después de la brazada también implica una mayor resistencia en el agua."
+							text="Sacar todo el pecho del agua al momento de respirar provoca resistencia y el ejercicio se vuelve más demandante.
+                        La descoordinación entre la brazada y la patada hace el ejercicio menos efectivo.
+                        "
 						/>
 					</Col>
 					<Col sm={4}>
 						<Cards
 							video=""
 							title="Estilo-libre"
-							text="-Sumergir una parte considerable del tronco y no mantener el cuerpo de forma horizontal.
-                        -Dar las brazadas con un solo brazo y no alternar correctamente.
-                        -No tomar bocanadas de aire de forma regular, lo cual genera como consecuencia una fatiga prematura al nadar.
-                        -Dejar de propulsar con las piernas por falta de coordinación."
+							text="Sumergir una parte considerable del tronco y no mantener el cuerpo de forma horizontal.
+                        Dar las brazadas con un solo brazo y no alternar correctamente.
+                        No tomar bocanadas de aire de forma regular, lo cual genera como consecuencia una fatiga prematura al nadar.
+                        "
 						/>
 					</Col>
 					<Col sm={4}>
 						<Cards
 							video="https://www.youtube.com/embed/c62juPrzmqk"
 							title="Estilo-Dorso"
-							text="-No coordinar las brazadas correctamente, lo cual genera fatiga para las piernas y los brazos.
-                        -Mover mucho la cabeza (y el cuerpo) de lado a lado con el fin de ubicarse en la piscina.
-                        -Hundir la pelvis y no mantener el cuerpo de forma horizontal."
+							text="No coordinar las brazadas correctamente, lo cual genera fatiga para las piernas y los brazos.
+                        Mover mucho la cabeza (y el cuerpo) de lado a lado con el fin de ubicarse en la piscina.
+                        Hundir la pelvis y no mantener el cuerpo de forma horizontal."
 						/>
 					</Col>
 				</Row>
@@ -50,9 +50,7 @@ export const Mistakes = () => {
 						<Cards
 							video="https://www.youtube.com/embed/_NU2tsuZIRA"
 							title="Estilo-pecho"
-							text="-Hacer la brazada y la patada al mismo tiempo.
-                        -No dejar tiempo de desliz.
-                        -No tomar aire cada vez que la cabeza sale del agua."
+							text="Hacer la brazada y la patada al mismo tiempo, no dejar tiempo de deslizamineto y no tomar aire cada vez que la cabeza sale del agua."
 						/>
 					</Col>
 				</Row>
