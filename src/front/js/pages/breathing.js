@@ -55,8 +55,8 @@ export const Breathing = () => {
 					</Col>
 					<Col sm={4}>
 						<Cards
-							video="https://www.youtube.com/embed/YuQ2FwqVS5g"
-							title="Respirar-correctamente-mientras-nadas"
+							video="https://www.youtube.com/embed/hvhMjewyliY"
+							title="Tres-ejercicios-básicos-estilo-crol"
 							text="Ejercicios prácticos para la asimilación de la técnica de respiración"
 						/>
 					</Col>
