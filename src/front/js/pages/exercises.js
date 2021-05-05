@@ -26,7 +26,7 @@ export const Exercises = () => {
 						<Cards
 							video="https://www.youtube.com/embed/3QyiHNUbxrA"
 							title="Brazada-Crol"
-							text="El brazo debe de estar ligeramente flexionado, con el codo por encima de la mano). La muñeca se mantiene ligeramente flexionada unos grados desde la línea del antebrazo. "
+							text="El brazo debe de estar ligeramente flexionado, con el codo por encima de la mano. La muñeca se mantiene ligeramente flexionada unos grados desde la línea del antebrazo. "
 						/>
 					</Col>
 					<Col sm={4}>
