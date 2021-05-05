@@ -48,7 +48,7 @@ export const Mistakes = () => {
 				<Row>
 					<Col sm={4}>
 						<Cards
-							video="https://www.youtube.com/embed/AqiK-jnBAN8"
+							video="https://www.youtube.com/embed/_NU2tsuZIRA"
 							title="Estilo-pecho"
 							text="-Hacer la brazada y la patada al mismo tiempo.
                         -No dejar tiempo de desliz.
