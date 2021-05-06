@@ -139,16 +139,6 @@ export const Exercises = () => {
 						/>
 					</Col>
 				</Row>
-				{/* sixth row */}
-				<Row>
-					<Col sm={4}>
-						<Cards
-							video="https://www.youtube.com/embed/nxq-ekhg5_s"
-							title="Giro-Mariposa"
-							text="Las dos manos deben tocar la pared al mismo tiempo, una mano se queda en la pared y la otra regresa por debajo."
-						/>
-					</Col>
-				</Row>
 			</Container>
 		</>
 	);

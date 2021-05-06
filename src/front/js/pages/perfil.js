@@ -53,6 +53,14 @@ export const Perfil = () => {
 										<option>Estilo dorso</option>
 										<option>Estilo libre</option>
 										<option>Estilo pecho</option>
+										<option>Técnica de mariposa</option>
+										<option>Técnica de dorso</option>
+										<option>Técnica de libre</option>
+										<option>Técnica de pecho</option>
+										<option>Patada de mariposa</option>
+										<option>Patada de dorso</option>
+										<option>Patada de libre</option>
+										<option>Patada de pecho</option>
 									</Form.Control>
 								</Form.Group>
 							</dl>

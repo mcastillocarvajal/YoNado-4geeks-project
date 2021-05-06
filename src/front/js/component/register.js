@@ -13,12 +13,16 @@ export const Register = () => {
 
 	function handleJoinUs(e) {
 		e.preventDefault;
-		actions.Register(name, last_name, email, password);
+		if (name !== "" || last_name !== "" || email !== "" || password !== "") {
+			actions.Register(name, last_name, email, password);
+		} else {
+			alert("Revisa que todos los campos estén llenos!");
+		}
 	}
 
 	return (
 		<div className="d-flex flex-column mx-auto mt-4 mb-5">
-			<h2 className="display-4 font-weight-normal text-center my-5">Bienvenido a Yo Nado!</h2>
+			<h2 className="display-4 text-dark text-center my-5">Bienvenido a Yo Nado!</h2>
 			{store.register ? (
 				<div style={{ height: "50vh" }}>
 					<h2 className="text-center">
