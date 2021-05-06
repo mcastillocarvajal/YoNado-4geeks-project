@@ -26,7 +26,7 @@ export const Mistakes = () => {
 					</Col>
 					<Col sm={4}>
 						<Cards
-							video=""
+							video="https://www.youtube.com/embed/2TEbc-ZAZ34"
 							title="Estilo-libre"
 							text="Sumergir una parte considerable del tronco y no mantener el cuerpo de forma horizontal.
                         Dar las brazadas con un solo brazo y no alternar correctamente.
