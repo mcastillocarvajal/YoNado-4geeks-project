@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import "../../styles/favCard.scss";
+import { Context } from "../store/appContext";
 
 export const FavCard = ({ link, title, description, deleteNumber }) => {
+	const { store, actions } = useContext(Context);
 	return (
-		<div className="card mx-auto" style={{ maxWidth: "900px" }}>
-			<div className="row g-0">
+		<div className="card mx-auto mb-5" style={{ maxWidth: "900px" }}>
+			<div className="row no-gutters">
 				<div className="col-md-4">
 					<iframe
 						className="m-2"
-						width="326"
+						width="100%"
 						height="300"
 						src={link}
 						title="YouTube video player"
@@ -26,32 +28,16 @@ export const FavCard = ({ link, title, description, deleteNumber }) => {
 						<p className="card-text ml-5" id="favtext">
 							{description}
 						</p>
-						<button
-							id="favbtn"
-							variant="primary"
-							className="d-flex justify-content-center"
-							// style={{
-							// 	backgroundColor: store.favorites.map(fav => fav.link).includes(props.video)
-							// 		? "#3CD0FF"
-							// 		: "#13718E"
-							// }}
-							// onClick={() =>
-							// 	store.favorites.map(fav => fav.link).includes(props.video)
-							// 		? actions.deleteFavorite(store.user.id, props.video)
-							// 		: actions.addFavorite(props.title, props.text, props.video, store.user.id)
-							// }
-						>
-							<i
-								id="favstar"
-								className="fas fa-star mr-1"
-								//{
-								// 	store.favorites.map(fav => fav.link).includes(props.video)
-								// 		? "fas fa-star mr-1"
-								// 		: "far fa-star mr-1"
-								// }
-							/>
-							Favorito
-						</button>
+						<div className="d-flex align-items-end">
+							<button
+								id="favbtn"
+								variant="primary"
+								className="btn d-flex justify-content-center text-white ml-5"
+								onClick={() => actions.deleteFavorite(store.user.id, link)}>
+								<i id="favstar" className="fas fa-star mr-1 mt-1" />
+								Favorito
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
